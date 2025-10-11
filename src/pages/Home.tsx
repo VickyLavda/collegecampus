@@ -11,31 +11,31 @@ const Home = () => {
       path: '/recipes',
       icon: UtensilsCrossed,
       title: t('home.sections.recipes'),
-      color: 'bg-blue-50 text-blue-600 hover:bg-blue-100',
+      color: 'bg-secondary/50 text-accent hover:bg-secondary',
     },
     {
       path: '/clean',
       icon: Sparkles,
       title: t('home.sections.clean'),
-      color: 'bg-purple-50 text-purple-600 hover:bg-purple-100',
+      color: 'bg-secondary/50 text-accent hover:bg-secondary',
     },
     {
       path: '/health',
       icon: HeartPulse,
       title: t('home.sections.health'),
-      color: 'bg-red-50 text-red-600 hover:bg-red-100',
+      color: 'bg-secondary/50 text-accent hover:bg-secondary',
     },
     {
       path: '/hacks',
       icon: Lightbulb,
       title: t('home.sections.hacks'),
-      color: 'bg-amber-50 text-amber-600 hover:bg-amber-100',
+      color: 'bg-secondary/50 text-accent hover:bg-secondary',
     },
     {
       path: '/sos',
       icon: Phone,
       title: t('home.sections.sos'),
-      color: 'bg-green-50 text-green-600 hover:bg-green-100',
+      color: 'bg-secondary/50 text-accent hover:bg-secondary',
     },
   ];
 

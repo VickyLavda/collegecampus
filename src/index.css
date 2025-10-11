@@ -11,7 +11,7 @@
 
 @layer base {
   :root {
-    /* Deep Navy Base - converted to HSL */
+    /* Light mode - white backgrounds */
     --background: 0 0% 100%;
     --foreground: 207 60% 11%;
 
@@ -21,20 +21,20 @@
     --popover: 0 0% 100%;
     --popover-foreground: 207 60% 11%;
 
-    /* Deep Navy Primary */
+    /* Deep Navy Primary - #0D1B2A */
     --primary: 207 60% 11%;
     --primary-foreground: 0 0% 100%;
 
-    /* Soft Gold Accent */
+    /* Soft Gold Accent - #D4AF37 */
     --accent: 44 58% 52%;
     --accent-foreground: 207 60% 11%;
 
-    /* Navy Secondary Shades */
-    --secondary: 207 40% 20%;
+    /* Midnight Blue Secondary - #1B263B */
+    --secondary: 211 35% 16%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 207 20% 94%;
-    --muted-foreground: 207 30% 40%;
+    --muted-foreground: 180 2% 78%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -46,15 +46,15 @@
     --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-navy: linear-gradient(135deg, hsl(207, 60%, 11%), hsl(207, 50%, 18%));
+    --gradient-navy: linear-gradient(135deg, hsl(207, 60%, 11%), hsl(211, 35%, 16%));
     --gradient-gold: linear-gradient(135deg, hsl(44, 58%, 52%), hsl(44, 65%, 58%));
-    --gradient-hero: linear-gradient(180deg, hsl(207, 60%, 11%) 0%, hsl(207, 50%, 18%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(207, 60%, 11%) 0%, hsl(211, 35%, 16%) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 2px 8px rgba(13, 27, 42, 0.08);
-    --shadow-medium: 0 4px 16px rgba(13, 27, 42, 0.12);
-    --shadow-strong: 0 8px 24px rgba(13, 27, 42, 0.16);
-    --shadow-gold: 0 4px 12px rgba(212, 175, 55, 0.2);
+    /* Shadows with 10% opacity */
+    --shadow-soft: 0 2px 8px rgba(13, 27, 42, 0.1);
+    --shadow-medium: 0 4px 16px rgba(13, 27, 42, 0.1);
+    --shadow-strong: 0 8px 24px rgba(13, 27, 42, 0.1);
+    --shadow-gold: 0 4px 12px rgba(212, 175, 55, 0.1);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,48 +65,53 @@
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 44 58% 52%;
     --sidebar-primary-foreground: 207 60% 11%;
-    --sidebar-accent: 207 50% 18%;
+    --sidebar-accent: 211 35% 16%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 207 40% 20%;
+    --sidebar-border: 211 35% 16%;
     --sidebar-ring: 44 58% 52%;
   }
 
   .dark {
+    /* Dark mode - Deep Navy background #0D1B2A */
     --background: 207 60% 11%;
     --foreground: 0 0% 100%;
 
-    --card: 207 50% 15%;
+    /* Midnight Blue cards #1B263B */
+    --card: 211 35% 16%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 207 50% 15%;
+    --popover: 211 35% 16%;
     --popover-foreground: 0 0% 100%;
 
+    /* Soft Gold Primary in dark mode */
     --primary: 44 58% 52%;
     --primary-foreground: 207 60% 11%;
 
-    --secondary: 207 40% 20%;
+    /* Midnight Blue Secondary */
+    --secondary: 211 35% 16%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 207 40% 20%;
-    --muted-foreground: 207 20% 70%;
+    --muted: 211 35% 16%;
+    --muted-foreground: 180 2% 78%;
 
+    /* Soft Gold Accent */
     --accent: 44 58% 52%;
     --accent-foreground: 207 60% 11%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 207 40% 20%;
-    --input: 207 40% 20%;
+    --border: 211 35% 16%;
+    --input: 211 35% 16%;
     --ring: 44 58% 52%;
 
     --sidebar-background: 207 60% 11%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 44 58% 52%;
     --sidebar-primary-foreground: 207 60% 11%;
-    --sidebar-accent: 207 50% 18%;
+    --sidebar-accent: 211 35% 16%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 207 40% 20%;
+    --sidebar-border: 211 35% 16%;
     --sidebar-ring: 44 58% 52%;
   }
 }
