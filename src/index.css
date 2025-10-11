@@ -11,44 +11,45 @@
 
 @layer base {
   :root {
-    /* Light mode - white backgrounds */
-    --background: 0 0% 100%;
-    --foreground: 207 60% 11%;
+    /* Deep Navy Background - #0D1B2A */
+    --background: 207 53% 11%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 207 60% 11%;
+    /* Midnight Blue Cards - #1B263B */
+    --card: 219 37% 17%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 207 60% 11%;
+    --popover: 219 37% 17%;
+    --popover-foreground: 0 0% 100%;
 
     /* Deep Navy Primary - #0D1B2A */
-    --primary: 207 60% 11%;
+    --primary: 207 53% 11%;
     --primary-foreground: 0 0% 100%;
 
     /* Soft Gold Accent - #D4AF37 */
-    --accent: 44 58% 52%;
-    --accent-foreground: 207 60% 11%;
+    --accent: 46 65% 52%;
+    --accent-foreground: 207 53% 11%;
 
     /* Midnight Blue Secondary - #1B263B */
-    --secondary: 211 35% 16%;
+    --secondary: 219 37% 17%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 207 20% 94%;
-    --muted-foreground: 180 2% 78%;
+    --muted: 219 37% 17%;
+    --muted-foreground: 210 3% 78%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 207 20% 88%;
-    --input: 207 20% 88%;
-    --ring: 44 58% 52%;
+    --border: 219 37% 25%;
+    --input: 219 37% 17%;
+    --ring: 46 65% 52%;
 
     --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-navy: linear-gradient(135deg, hsl(207, 60%, 11%), hsl(211, 35%, 16%));
-    --gradient-gold: linear-gradient(135deg, hsl(44, 58%, 52%), hsl(44, 65%, 58%));
-    --gradient-hero: linear-gradient(180deg, hsl(207, 60%, 11%) 0%, hsl(211, 35%, 16%) 100%);
+    --gradient-navy: linear-gradient(135deg, hsl(207, 53%, 11%), hsl(219, 37%, 17%));
+    --gradient-gold: linear-gradient(135deg, hsl(46, 65%, 52%), hsl(46, 70%, 58%));
+    --gradient-hero: linear-gradient(180deg, hsl(207, 53%, 11%) 0%, hsl(219, 37%, 17%) 100%);
 
     /* Shadows with 10% opacity */
     --shadow-soft: 0 2px 8px rgba(13, 27, 42, 0.1);
@@ -61,58 +62,58 @@
     --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* Sidebar */
-    --sidebar-background: 207 60% 11%;
+    --sidebar-background: 207 53% 11%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 44 58% 52%;
-    --sidebar-primary-foreground: 207 60% 11%;
-    --sidebar-accent: 211 35% 16%;
+    --sidebar-primary: 46 65% 52%;
+    --sidebar-primary-foreground: 207 53% 11%;
+    --sidebar-accent: 219 37% 17%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 211 35% 16%;
-    --sidebar-ring: 44 58% 52%;
+    --sidebar-border: 219 37% 17%;
+    --sidebar-ring: 46 65% 52%;
   }
 
   .dark {
     /* Dark mode - Deep Navy background #0D1B2A */
-    --background: 207 60% 11%;
+    --background: 207 53% 11%;
     --foreground: 0 0% 100%;
 
     /* Midnight Blue cards #1B263B */
-    --card: 211 35% 16%;
+    --card: 219 37% 17%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 211 35% 16%;
+    --popover: 219 37% 17%;
     --popover-foreground: 0 0% 100%;
 
     /* Soft Gold Primary in dark mode */
-    --primary: 44 58% 52%;
-    --primary-foreground: 207 60% 11%;
+    --primary: 46 65% 52%;
+    --primary-foreground: 207 53% 11%;
 
     /* Midnight Blue Secondary */
-    --secondary: 211 35% 16%;
+    --secondary: 219 37% 17%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 211 35% 16%;
-    --muted-foreground: 180 2% 78%;
+    --muted: 219 37% 17%;
+    --muted-foreground: 210 3% 78%;
 
     /* Soft Gold Accent */
-    --accent: 44 58% 52%;
-    --accent-foreground: 207 60% 11%;
+    --accent: 46 65% 52%;
+    --accent-foreground: 207 53% 11%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 211 35% 16%;
-    --input: 211 35% 16%;
-    --ring: 44 58% 52%;
+    --border: 219 37% 25%;
+    --input: 219 37% 17%;
+    --ring: 46 65% 52%;
 
-    --sidebar-background: 207 60% 11%;
+    --sidebar-background: 207 53% 11%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 44 58% 52%;
-    --sidebar-primary-foreground: 207 60% 11%;
-    --sidebar-accent: 211 35% 16%;
+    --sidebar-primary: 46 65% 52%;
+    --sidebar-primary-foreground: 207 53% 11%;
+    --sidebar-accent: 219 37% 17%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 211 35% 16%;
-    --sidebar-ring: 44 58% 52%;
+    --sidebar-border: 219 37% 17%;
+    --sidebar-ring: 46 65% 52%;
   }
 }
 
