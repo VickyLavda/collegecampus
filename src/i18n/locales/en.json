@@ -1,0 +1,85 @@
+{
+  "app": {
+    "name": "College Campus",
+    "tagline": "Because you can do this — even away from home"
+  },
+  "onboarding": {
+    "welcome": "Welcome to College Campus",
+    "subtitle": "Your companion for university life",
+    "selectLanguage": "Select Your Language",
+    "getStarted": "Get Started"
+  },
+  "home": {
+    "title": "Home",
+    "dailyTip": "Daily Tip",
+    "sections": {
+      "recipes": "Easy Recipes",
+      "clean": "Clean & Organize",
+      "health": "When You're Sick",
+      "hacks": "Life Hacks",
+      "sos": "SOS & Help"
+    }
+  },
+  "recipes": {
+    "title": "Easy Recipes",
+    "subtitle": "Quick meals for busy students",
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Advanced"
+    },
+    "time": "min",
+    "ingredients": "Ingredients",
+    "instructions": "Instructions",
+    "startCooking": "Start Cooking"
+  },
+  "clean": {
+    "title": "Clean & Organize",
+    "subtitle": "Keep your space fresh and tidy",
+    "categories": {
+      "laundry": "Laundry Basics",
+      "kitchen": "Kitchen Cleaning",
+      "bathroom": "Bathroom Care",
+      "stains": "Stain Removal",
+      "organize": "Room Reset"
+    }
+  },
+  "health": {
+    "title": "When You're Sick",
+    "subtitle": "Know when to rest and when to seek help",
+    "symptoms": "Common Symptoms",
+    "whenToCall": "When to Call a Doctor",
+    "homeRemedies": "Home Remedies"
+  },
+  "hacks": {
+    "title": "Life Hacks",
+    "subtitle": "Smart tips for student living",
+    "categories": {
+      "budget": "Budget & Money",
+      "rent": "Rent & Bills",
+      "roommates": "Living with Roommates",
+      "study": "Study Tips",
+      "social": "Social Life"
+    }
+  },
+  "sos": {
+    "title": "SOS & Help",
+    "subtitle": "Emergency contacts and resources",
+    "emergency": "Emergency Services",
+    "call112": "Call 112",
+    "findPharmacy": "Find Pharmacy",
+    "shareLocation": "Share My Location",
+    "importantNumbers": "Important Numbers",
+    "police": "Police",
+    "ambulance": "Ambulance",
+    "fire": "Fire Department"
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading..."
+  }
+}
