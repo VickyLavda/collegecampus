@@ -1,72 +1,12 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, ChefHat } from 'lucide-react';
-
-interface Recipe {
-  id: string;
-  name: string;
-  nameEl: string;
-  time: number;
-  difficulty: 'easy' | 'medium' | 'hard';
-  image: string;
-}
+import { recipes } from '@/data/recipes';
 
 const Recipes = () => {
   const { t, i18n } = useTranslation();
-
-  const recipes: Recipe[] = [
-    {
-      id: '1',
-      name: 'Quick Pasta Carbonara',
-      nameEl: 'Γρήγορη Καρμπονάρα',
-      time: 15,
-      difficulty: 'easy',
-      image: '🍝',
-    },
-    {
-      id: '2',
-      name: 'Simple Greek Salad',
-      nameEl: 'Απλή Ελληνική Σαλάτα',
-      time: 10,
-      difficulty: 'easy',
-      image: '🥗',
-    },
-    {
-      id: '3',
-      name: 'Egg & Veggie Scramble',
-      nameEl: 'Ομελέτα με Λαχανικά',
-      time: 12,
-      difficulty: 'easy',
-      image: '🍳',
-    },
-    {
-      id: '4',
-      name: 'Chicken Souvlaki Bowl',
-      nameEl: 'Μπολ Κοτόπουλο Σουβλάκι',
-      time: 20,
-      difficulty: 'medium',
-      image: '🍗',
-    },
-    {
-      id: '5',
-      name: 'Budget-Friendly Stir Fry',
-      nameEl: 'Οικονομικό Stir Fry',
-      time: 15,
-      difficulty: 'easy',
-      image: '🥘',
-    },
-    {
-      id: '6',
-      name: 'Quick Grilled Cheese',
-      nameEl: 'Γρήγορο Τοστ με Τυρί',
-      time: 8,
-      difficulty: 'easy',
-      image: '🧀',
-    },
-  ];
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {

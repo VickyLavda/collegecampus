@@ -4,53 +4,21 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Clock, ChefHat } from 'lucide-react';
+import { recipes } from '@/data/recipes';
 
 const RecipeDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
-  // Sample recipe data - in real app, this would come from a database
-  const recipe = {
-    id: '1',
-    name: 'Quick Pasta Carbonara',
-    nameEl: 'Γρήγορη Καρμπονάρα',
-    time: 15,
-    difficulty: 'easy',
-    image: '🍝',
-    ingredients: [
-      '200g pasta',
-      '2 eggs',
-      '100g bacon or pancetta',
-      '50g parmesan cheese',
-      'Black pepper',
-      'Salt',
-    ],
-    ingredientsEl: [
-      '200γρ ζυμαρικά',
-      '2 αυγά',
-      '100γρ μπέικον',
-      '50γρ παρμεζάνα',
-      'Μαύρο πιπέρι',
-      'Αλάτι',
-    ],
-    instructions: [
-      'Boil pasta according to package directions',
-      'Fry bacon until crispy',
-      'Beat eggs with cheese',
-      'Drain pasta, mix with bacon',
-      'Remove from heat, add egg mixture',
-      'Toss quickly and serve immediately',
-    ],
-    instructionsEl: [
-      'Βράστε τα ζυμαρικά σύμφωνα με τις οδηγίες',
-      'Τηγανίστε το μπέικον μέχρι να γίνει τραγανό',
-      'Χτυπήστε τα αυγά με το τυρί',
-      'Στραγγίξτε τα ζυμαρικά, ανακατέψτε με το μπέικον',
-      'Αφαιρέστε από τη φωτιά, προσθέστε το μείγμα αυγών',
-      'Ανακατέψτε γρήγορα και σερβίρετε αμέσως',
-    ],
-  };
+  // Find the recipe by ID
+  const recipe = recipes.find(r => r.id === id);
+
+  // If recipe not found, redirect back
+  if (!recipe) {
+    navigate('/recipes');
+    return null;
+  }
 
   const ingredients = i18n.language === 'el' ? recipe.ingredientsEl : recipe.ingredients;
   const instructions = i18n.language === 'el' ? recipe.instructionsEl : recipe.instructions;
