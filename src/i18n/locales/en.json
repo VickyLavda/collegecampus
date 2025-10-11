@@ -31,7 +31,9 @@
     "time": "min",
     "ingredients": "Ingredients",
     "instructions": "Instructions",
-    "startCooking": "Start Cooking"
+    "startCooking": "Start Cooking",
+    "finishCooking": "Finish Cooking",
+    "step": "Step"
   },
   "clean": {
     "title": "Clean & Organize",
@@ -77,6 +79,9 @@
   "common": {
     "back": "Back",
     "next": "Next",
+    "previous": "Previous",
+    "exit": "Exit",
+    "of": "of",
     "close": "Close",
     "save": "Save",
     "cancel": "Cancel",
