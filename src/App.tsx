@@ -14,6 +14,7 @@ import Health from './pages/Health';
 import LifeHacks from './pages/LifeHacks';
 import Supermarket from './pages/Supermarket';
 import SOS from './pages/SOS';
+import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 import './i18n/config';
 
@@ -41,6 +42,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Onboarding />} />
+            <Route path="/auth" element={<Auth />} />
             <Route path="/home" element={<Layout><Home /></Layout>} />
             <Route path="/recipes" element={<Layout><Recipes /></Layout>} />
             <Route path="/recipes/:id" element={<Layout><RecipeDetail /></Layout>} />

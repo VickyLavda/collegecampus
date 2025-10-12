@@ -50,6 +50,9 @@ const Home = () => {
           <GraduationCap className="w-12 h-12 text-accent" strokeWidth={1.5} />
         </div>
         <h1 className="text-3xl font-bold tracking-wider mb-6 text-accent">{t('app.name')}</h1>
+        <a href="/auth" className="text-sm text-muted-foreground hover:text-accent transition-smooth">
+          Login / Sign Up
+        </a>
       </div>
 
       {/* Personalized Greeting */}
