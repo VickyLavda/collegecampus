@@ -26,6 +26,7 @@
       "clean": "Clean & Organize",
       "health": "When You're Sick",
       "hacks": "Life Hacks",
+      "supermarket": "My Supermarket",
       "sos": "SOS & Help"
     }
   },
@@ -84,6 +85,24 @@
     "police": "Police",
     "ambulance": "Ambulance",
     "fire": "Fire Department"
+  },
+  "supermarket": {
+    "title": "My Supermarket",
+    "subtitle": "Smart shopping made easy",
+    "findNearby": "Find Nearby Supermarkets",
+    "shoppingList": "Shopping List",
+    "addItem": "Add item...",
+    "itemAdded": "Item added to list",
+    "clearedCompleted": "Cleared completed items",
+    "clearCompleted": "Clear Completed",
+    "savedStores": "My Favorite Stores",
+    "storeName": "Store name",
+    "storeAddress": "Address",
+    "addStore": "Add Store",
+    "storeAdded": "Store saved",
+    "budgetTips": "Budget Shopping Tips",
+    "essentials": "Student Essentials Checklist",
+    "priceComparison": "Price Comparison Guide"
   },
   "common": {
     "back": "Back",

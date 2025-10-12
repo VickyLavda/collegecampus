@@ -12,6 +12,7 @@ import RecipeDetail from './pages/RecipeDetail';
 import Clean from './pages/Clean';
 import Health from './pages/Health';
 import LifeHacks from './pages/LifeHacks';
+import Supermarket from './pages/Supermarket';
 import SOS from './pages/SOS';
 import NotFound from './pages/NotFound';
 import './i18n/config';
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="/clean" element={<Layout><Clean /></Layout>} />
             <Route path="/health" element={<Layout><Health /></Layout>} />
             <Route path="/hacks" element={<Layout><LifeHacks /></Layout>} />
+            <Route path="/supermarket" element={<Layout><Supermarket /></Layout>} />
             <Route path="/sos" element={<Layout><SOS /></Layout>} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" replace />} />

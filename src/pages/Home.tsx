@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { UtensilsCrossed, Sparkles, HeartPulse, Lightbulb, Phone, GraduationCap } from 'lucide-react';
+import { UtensilsCrossed, Sparkles, HeartPulse, Lightbulb, Phone, GraduationCap, ShoppingCart } from 'lucide-react';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -26,6 +26,11 @@ const Home = () => {
       path: '/hacks',
       icon: Lightbulb,
       title: t('home.sections.hacks'),
+    },
+    {
+      path: '/supermarket',
+      icon: ShoppingCart,
+      title: t('home.sections.supermarket'),
     },
     {
       path: '/sos',
