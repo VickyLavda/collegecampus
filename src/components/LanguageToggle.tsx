@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { Languages } from 'lucide-react';
 
 export const LanguageToggle = () => {
   const { i18n } = useTranslation();
@@ -15,10 +14,11 @@ export const LanguageToggle = () => {
       variant="ghost"
       size="sm"
       onClick={toggleLanguage}
-      className="gap-2 text-accent hover:text-accent/80"
+      className="gap-1.5 text-accent hover:text-accent/80 font-semibold tracking-wide"
     >
-      <Languages className="h-4 w-4" />
-      <span className="font-medium">{i18n.language === 'en' ? 'ΕΛ' : 'EN'}</span>
+      <span className={i18n.language === 'en' ? 'opacity-100' : 'opacity-50'}>EN</span>
+      <span className="opacity-50">|</span>
+      <span className={i18n.language === 'el' ? 'opacity-100' : 'opacity-50'}>ΕΛ</span>
     </Button>
   );
 };
