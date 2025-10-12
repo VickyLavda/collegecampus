@@ -69,11 +69,13 @@ const Clean = () => {
         '10-minute daily tidy-up',
         'Everything has a place',
         'Declutter monthly',
+        'Cockroach? Seal food, clean crumbs, use boric acid traps',
       ],
       tipsEl: [
         'Τακτοποίηση 10 λεπτών ημερησίως',
         'Τα πάντα στη θέση τους',
         'Ξεκαθάρισμα μηνιαίως',
+        'Κατσαρίδα; Σφραγίστε φαγητό, καθαρίστε ψίχουλα, χρησιμοποιήστε παγίδες βορικού οξέος',
       ],
     },
   ];
