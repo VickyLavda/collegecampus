@@ -49,7 +49,7 @@ const Home = () => {
         <div className="inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-accent mb-4">
           <GraduationCap className="w-12 h-12 text-accent" strokeWidth={1.5} />
         </div>
-        <h1 className="text-3xl font-bold tracking-wider mb-6 text-foreground">{t('app.name')}</h1>
+        <h1 className="text-3xl font-bold tracking-wider mb-6 text-accent">{t('app.name')}</h1>
       </div>
 
       {/* Personalized Greeting */}
