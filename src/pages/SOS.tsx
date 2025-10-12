@@ -51,7 +51,7 @@ const SOS = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
-        <h1 className="mb-2 flex items-center justify-center gap-2 text-primary">
+        <h1 className="mb-2 flex items-center justify-center gap-2 text-foreground">
           <Phone className="h-8 w-8 text-accent" />
           {t('sos.title')}
         </h1>
@@ -100,7 +100,7 @@ const SOS = () => {
       {/* Important Numbers */}
       <Card className="shadow-soft">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-xl text-primary">
+          <CardTitle className="flex items-center gap-2 text-xl text-foreground">
             <Phone className="h-5 w-5 text-accent" />
             {t('sos.importantNumbers')}
           </CardTitle>

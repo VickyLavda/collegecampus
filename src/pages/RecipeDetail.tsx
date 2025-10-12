@@ -194,7 +194,7 @@ const RecipeDetail = () => {
         <CardHeader>
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <CardTitle className="text-3xl mb-3 text-primary">{name}</CardTitle>
+              <CardTitle className="text-3xl mb-3 text-foreground">{name}</CardTitle>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Clock className="h-4 w-4" />
@@ -213,7 +213,7 @@ const RecipeDetail = () => {
       {/* Ingredients */}
       <Card className="shadow-soft">
         <CardHeader>
-          <CardTitle className="text-xl flex items-center gap-2 text-primary">
+          <CardTitle className="text-xl flex items-center gap-2 text-foreground">
             <ChefHat className="h-5 w-5 text-accent" />
             {t('recipes.ingredients')}
           </CardTitle>
@@ -233,7 +233,7 @@ const RecipeDetail = () => {
       {/* Instructions */}
       <Card className="shadow-soft">
         <CardHeader>
-          <CardTitle className="text-xl text-primary">{t('recipes.instructions')}</CardTitle>
+          <CardTitle className="text-xl text-foreground">{t('recipes.instructions')}</CardTitle>
         </CardHeader>
         <CardContent>
           <ol className="space-y-3">

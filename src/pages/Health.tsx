@@ -50,7 +50,7 @@ const Health = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
-        <h1 className="mb-2 flex items-center justify-center gap-2 text-primary">
+        <h1 className="mb-2 flex items-center justify-center gap-2 text-foreground">
           <HeartPulse className="h-8 w-8 text-accent" />
           {t('health.title')}
         </h1>
@@ -59,7 +59,7 @@ const Health = () => {
 
       {/* Common Symptoms */}
       <div>
-        <h2 className="mb-4 text-2xl text-primary">{t('health.symptoms')}</h2>
+        <h2 className="mb-4 text-2xl text-foreground">{t('health.symptoms')}</h2>
         <div className="space-y-4">
           {symptoms.map((symptom, index) => {
             const Icon = symptom.icon;
@@ -68,7 +68,7 @@ const Health = () => {
             return (
               <Card key={index} className="shadow-soft">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-lg text-primary">
+                  <CardTitle className="flex items-center gap-2 text-lg text-foreground">
                     <Icon className="h-5 w-5 text-accent" />
                     {name}
                   </CardTitle>

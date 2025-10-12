@@ -82,7 +82,7 @@ const Clean = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
-        <h1 className="mb-2 flex items-center justify-center gap-2 text-primary">
+        <h1 className="mb-2 flex items-center justify-center gap-2 text-foreground">
           <Sparkles className="h-8 w-8 text-accent" />
           {t('clean.title')}
         </h1>
@@ -96,7 +96,7 @@ const Clean = () => {
           return (
             <Card key={category.id} className="shadow-soft hover:shadow-medium transition-smooth">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl text-primary">
+                <CardTitle className="flex items-center gap-2 text-xl text-foreground">
                   <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>

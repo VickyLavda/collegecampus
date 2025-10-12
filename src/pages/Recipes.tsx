@@ -25,7 +25,7 @@ const Recipes = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center">
-        <h1 className="mb-2 flex items-center justify-center gap-2 text-primary">
+        <h1 className="mb-2 flex items-center justify-center gap-2 text-foreground">
           <ChefHat className="h-8 w-8 text-accent" />
           {t('recipes.title')}
         </h1>
@@ -40,7 +40,7 @@ const Recipes = () => {
               <CardHeader>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <CardTitle className="text-xl mb-2">
+                    <CardTitle className="text-xl mb-2 text-foreground">
                       {i18n.language === 'el' ? recipe.nameEl : recipe.name}
                     </CardTitle>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
