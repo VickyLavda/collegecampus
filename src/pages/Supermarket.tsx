@@ -104,12 +104,13 @@ const Supermarket = () => {
       } else {
         setProfile(profileData);
         
-        // Fetch supermarkets based on user's country
+        // Fetch supermarkets based on user's country and city
         const { data: supermarketsData, error: supermarketsError } = await supabase
           .from('supermarkets')
           .select('*')
           .eq('country', profileData.country)
-          .order('city');
+          .eq('city', profileData.city)
+          .order('name');
 
         if (supermarketsError) {
           console.error('Error fetching supermarkets:', supermarketsError);
