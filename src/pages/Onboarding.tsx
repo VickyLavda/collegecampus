@@ -23,7 +23,7 @@ const Onboarding = () => {
         </div>
 
         {/* Title */}
-        <h1 className="mb-2 text-primary font-heading">{t('onboarding.welcome')}</h1>
+        <h1 className="mb-2 text-accent font-heading">{t('onboarding.welcome')}</h1>
         <p className="mb-8 text-muted-foreground">{t('onboarding.subtitle')}</p>
 
         {/* Language Selection */}
