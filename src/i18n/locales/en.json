@@ -12,14 +12,16 @@
   "home": {
     "title": "Home",
     "greeting": "Hello!",
-    "todayTip": "Today's tip: How to clean your sneakers fast 🪐 before class",
-    "dailyTip": "Daily Tip",
+    "todayTip": "You are capable of amazing things 💫",
+    "dailyTip": "Daily Motivation",
     "dailyTips": [
-      "Meal prep on Sundays to save time during the week!",
-      "Keep a cleaning schedule — 10 minutes a day makes a difference.",
-      "Drink water before reaching for coffee when you feel tired.",
-      "Track your expenses weekly to stay within budget.",
-      "Don't skip breakfast — it fuels your brain for the day!"
+      "You are capable of amazing things 💫",
+      "Every small step forward is progress. Keep going! 🚀",
+      "Believe in yourself — you've got this! 💪",
+      "Your potential is limitless. Embrace today's challenges! ⭐",
+      "Success is built one day at a time. Make today count! 🌟",
+      "You're stronger than you think. Keep pushing forward! 🔥",
+      "Dream big, work hard, stay focused. You've got what it takes! ✨"
     ],
     "sections": {
       "recipes": "Easy Recipes",
