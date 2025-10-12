@@ -14,7 +14,7 @@ export const LanguageToggle = () => {
       variant="ghost"
       size="sm"
       onClick={toggleLanguage}
-      className="gap-1.5 text-accent hover:text-accent/80 font-semibold tracking-wide"
+      className="gap-1.5 text-white hover:text-white/80 font-semibold tracking-wide"
     >
       <span className={i18n.language === 'en' ? 'opacity-100' : 'opacity-50'}>EN</span>
       <span className="opacity-50">|</span>
