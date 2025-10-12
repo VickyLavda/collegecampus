@@ -34,14 +34,7 @@ const Home = () => {
     },
   ];
 
-  const dailyTips = [
-    "Meal prep on Sundays to save time during the week!",
-    "Keep a cleaning schedule — 10 minutes a day makes a difference.",
-    "Drink water before reaching for coffee when you feel tired.",
-    "Track your expenses weekly to stay within budget.",
-    "Don't skip breakfast — it fuels your brain for the day!",
-  ];
-
+  const dailyTips = t('home.dailyTips', { returnObjects: true }) as string[];
   const randomTip = dailyTips[Math.floor(Math.random() * dailyTips.length)];
 
   return (
@@ -56,9 +49,9 @@ const Home = () => {
 
       {/* Personalized Greeting */}
       <div className="text-center mb-2">
-        <h2 className="text-2xl font-semibold mb-3">Hello, Maria!</h2>
+        <h2 className="text-2xl font-semibold mb-3">{t('home.greeting')}</h2>
         <p className="text-muted-foreground text-base">
-          Today's tip: How to clean your sneakers fast 🪐 before class
+          {t('home.todayTip')}
         </p>
       </div>
 

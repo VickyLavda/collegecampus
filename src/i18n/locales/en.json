@@ -11,7 +11,16 @@
   },
   "home": {
     "title": "Home",
+    "greeting": "Hello, Maria!",
+    "todayTip": "Today's tip: How to clean your sneakers fast 🪐 before class",
     "dailyTip": "Daily Tip",
+    "dailyTips": [
+      "Meal prep on Sundays to save time during the week!",
+      "Keep a cleaning schedule — 10 minutes a day makes a difference.",
+      "Drink water before reaching for coffee when you feel tired.",
+      "Track your expenses weekly to stay within budget.",
+      "Don't skip breakfast — it fuels your brain for the day!"
+    ],
     "sections": {
       "recipes": "Easy Recipes",
       "clean": "Clean & Organize",
