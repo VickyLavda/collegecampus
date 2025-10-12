@@ -1,10 +1,35 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { UtensilsCrossed, Sparkles, HeartPulse, Lightbulb, Phone, GraduationCap, ShoppingCart } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Home = () => {
   const { t } = useTranslation();
+  const [firstName, setFirstName] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (session?.user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('name')
+          .eq('user_id', session.user.id)
+          .maybeSingle();
+        
+        if (profile?.name) {
+          setFirstName(profile.name);
+        }
+      }
+      setLoading(false);
+    };
+
+    fetchUserProfile();
+  }, []);
 
   const sections = [
     {
@@ -57,7 +82,9 @@ const Home = () => {
 
       {/* Personalized Greeting */}
       <div className="text-center mb-2">
-        <h2 className="text-2xl font-semibold mb-3">{t('home.greeting')}</h2>
+        <h2 className="text-2xl font-semibold mb-3">
+          {!loading && firstName ? `Hello ${firstName}!` : t('home.greeting')}
+        </h2>
         <p className="text-muted-foreground text-base">
           {t('home.todayTip')}
         </p>
