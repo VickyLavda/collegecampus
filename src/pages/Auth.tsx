@@ -21,7 +21,7 @@ const Auth = () => {
   // Form fields
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
 
@@ -52,7 +52,7 @@ const Auth = () => {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !password || !name || !country || !city) {
+    if (!email || !password || !firstName || !country || !city) {
       toast.error('Please fill in all fields');
       return;
     }
@@ -65,7 +65,7 @@ const Auth = () => {
       options: {
         emailRedirectTo: `${window.location.origin}/`,
         data: {
-          name,
+          first_name: firstName,
           country,
           city,
         },
@@ -121,13 +121,13 @@ const Auth = () => {
             {!isLogin && (
               <>
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="firstName">First Name</Label>
                   <Input
-                    id="name"
+                    id="firstName"
                     type="text"
-                    placeholder="Your name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your first name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     required={!isLogin}
                   />
                 </div>
