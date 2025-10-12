@@ -120,7 +120,7 @@ const SOS = () => {
                   </div>
                   <a
                     href={`tel:${emergency.number}`}
-                    className="text-2xl font-bold text-primary hover:text-accent transition-smooth"
+                    className="text-2xl font-bold text-accent hover:text-accent/80 transition-smooth"
                   >
                     {emergency.number}
                   </a>
