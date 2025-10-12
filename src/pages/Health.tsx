@@ -11,22 +11,78 @@ const Health = () => {
       icon: Thermometer,
       name: 'Cold & Flu',
       nameEl: 'Κρυολόγημα & Γρίπη',
-      remedies: ['Rest & hydration', 'Warm liquids', 'Over-the-counter meds'],
-      remediesEl: ['Ξεκούραση & ενυδάτωση', 'Ζεστά υγρά', 'Φάρμακα χωρίς συνταγή'],
+      remedies: [
+        'Get 8-10 hours of sleep - your body heals while resting',
+        'Drink water, herbal tea, or warm lemon water every 2 hours',
+        'Take vitamin C (1000mg) and zinc supplements',
+        'Use a humidifier or breathe steam from hot shower',
+        'Gargle with warm salt water for sore throat',
+        'Take paracetamol or ibuprofen for fever and aches',
+        'Eat chicken soup or warm broth for nutrition',
+        'Skip classes if fever is above 38°C - rest is priority'
+      ],
+      remediesEl: [
+        'Κοιμηθείτε 8-10 ώρες - το σώμα θεραπεύεται με ξεκούραση',
+        'Πίνετε νερό, βότανα ή ζεστό νερό με λεμόνι κάθε 2 ώρες',
+        'Πάρτε βιταμίνη C (1000mg) και ψευδάργυρο',
+        'Χρησιμοποιήστε υγραντήρα ή αναπνεύστε ατμό από ζεστό ντους',
+        'Κάντε γαργάρες με ζεστό νερό και αλάτι για πονόλαιμο',
+        'Πάρτε παρακεταμόλη ή ιβουπροφαίνη για πυρετό',
+        'Φάτε κοτόσουπα ή ζεστό ζωμό για θρέψη',
+        'Μην πάτε σχολή αν έχετε πυρετό πάνω από 38°C'
+      ],
     },
     {
       icon: HeartPulse,
       name: 'Headache',
       nameEl: 'Πονοκέφαλος',
-      remedies: ['Drink water', 'Rest in dark room', 'Pain reliever if needed'],
-      remediesEl: ['Πιείτε νερό', 'Ξεκουραστείτε σε σκοτεινό δωμάτιο', 'Παυσίπονο αν χρειάζεται'],
+      remedies: [
+        'Drink 2 glasses of water immediately - dehydration causes headaches',
+        'Rest in a dark, quiet room for 30 minutes',
+        'Apply cold compress to forehead or back of neck',
+        'Take ibuprofen or paracetamol as directed',
+        'Avoid screens (phone, laptop) for at least 1 hour',
+        'Try peppermint or lavender essential oil on temples',
+        'Eat a small snack if you haven\'t eaten recently',
+        'If due to stress, try deep breathing exercises'
+      ],
+      remediesEl: [
+        'Πιείτε 2 ποτήρια νερό αμέσως - η αφυδάτωση προκαλεί πονοκεφάλους',
+        'Ξεκουραστείτε σε σκοτεινό δωμάτιο για 30 λεπτά',
+        'Βάλτε κρύα κομπρέσα στο μέτωπο ή στο σβέρκο',
+        'Πάρτε ιβουπροφαίνη ή παρακεταμόλη',
+        'Αποφύγετε οθόνες (κινητό, laptop) για 1 ώρα',
+        'Δοκιμάστε δυόσμο ή λεβάντα στους κροτάφους',
+        'Φάτε κάτι μικρό αν δεν έχετε φάει',
+        'Αν οφείλεται σε άγχος, κάντε βαθιές αναπνοές'
+      ],
     },
     {
       icon: Pill,
       name: 'Upset Stomach',
       nameEl: 'Στομαχικό Άλγος',
-      remedies: ['Light foods (toast, rice)', 'Ginger tea', 'Avoid dairy & spicy foods'],
-      remediesEl: ['Ελαφριά φαγητά (φρυγανιά, ρύζι)', 'Τσάι τζίντζερ', 'Αποφύγετε γαλακτοκομικά & πικάντικα'],
+      remedies: [
+        'Start with clear liquids: water, herbal tea, or clear broth',
+        'Try the BRAT diet: Bananas, Rice, Applesauce, Toast',
+        'Drink ginger tea or chew fresh ginger',
+        'Take small sips of water every 15 minutes',
+        'Avoid caffeine, alcohol, dairy, and greasy foods',
+        'Use a heating pad on your stomach for cramps',
+        'Try peppermint tea to calm nausea',
+        'Rest and avoid lying down right after eating',
+        'If persistent vomiting or diarrhea, see a doctor'
+      ],
+      remediesEl: [
+        'Ξεκινήστε με διαυγή υγρά: νερό, βότανα, ζωμό',
+        'Δοκιμάστε τη δίαιτα BRAT: Μπανάνες, Ρύζι, Μηλόπιτα, Φρυγανιά',
+        'Πιείτε τσάι τζίντζερ ή μασήστε φρέσκο τζίντζερ',
+        'Πάρτε μικρές γουλιές νερό κάθε 15 λεπτά',
+        'Αποφύγετε καφεΐνη, αλκοόλ, γαλακτοκομικά',
+        'Βάλτε θερμοφόρα στο στομάχι για κράμπες',
+        'Δοκιμάστε τσάι δυόσμου για ναυτία',
+        'Ξεκουραστείτε και μην ξαπλώνετε αμέσως μετά το φαγητό',
+        'Αν συνεχίζεται ο εμετός, δείτε γιατρό'
+      ],
     },
   ];
 
