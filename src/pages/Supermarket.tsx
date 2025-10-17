@@ -281,7 +281,6 @@ const Supermarket = () => {
       alert(url);
     }
   };
-  };
 
   const budgetTips = i18n.language === 'el'
     ? [
@@ -400,18 +399,10 @@ const Supermarket = () => {
                   <Button
                     size="sm"
                     className="w-full"
-                    asChild
+                    onClick={() => openDirectionsSafe(market)}
                   >
-                    <a
-                      href={getDirectionsLink(market)}
-                      target="_top"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="flex items-center justify-center">
-                        <Navigation className="mr-2 h-4 w-4" />
-                        {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
-                      </span>
-                    </a>
+                    <Navigation className="mr-2 h-4 w-4" />
+                    {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
                   </Button>
                 </div>
               ))
