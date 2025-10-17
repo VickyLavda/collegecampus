@@ -138,7 +138,7 @@ const SupermarketMap = ({ supermarkets, userLocation, onMarkerClick }: Supermark
               margin-top: 8px;
             "
           >
-            📍 Get Directions
+            📋 Copy Directions Link
           </button>
         `;
         

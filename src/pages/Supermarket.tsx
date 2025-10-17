@@ -226,16 +226,21 @@ const Supermarket = () => {
       ? `${market.latitude},${market.longitude}`
       : encodeURIComponent(`${market.name} ${market.address} ${market.city} ${market.country}`);
 
+    const isEmbedded = (() => {
+      try { return window.self !== window.top; } catch { return true; }
+    })();
+
     const ua = navigator.userAgent || '';
     const isApple = /iPhone|iPad|iPod|Macintosh/.test(ua);
 
-    if (isApple) {
-      // Apple Maps on iOS/macOS
+    // In embedded preview, always use Google Maps links to avoid apple.com blocking
+    if (!isEmbedded && isApple) {
       return hasCoords
         ? `https://maps.apple.com/?daddr=${dest}`
         : `https://maps.apple.com/?q=${dest}`;
     }
-    // Google Maps on others
+
+    // Default to Google Maps
     return hasCoords
       ? `https://www.google.com/maps/dir/?api=1&destination=${dest}`
       : `https://www.google.com/maps/search/?api=1&query=${dest}`;
@@ -244,31 +249,37 @@ const Supermarket = () => {
   const openDirectionsSafe = async (market: SupermarketData) => {
     const url = getDirectionsLink(market);
 
-    // 1) Try to navigate the top window (break out of iframe)
-    try {
-      if (window.top) {
-        (window.top as Window).location.href = url;
+    const isEmbedded = (() => {
+      try { return window.self !== window.top; } catch { return true; }
+    })();
+
+    if (!isEmbedded) {
+      // 1) Try to navigate the top window (break out of iframe)
+      try {
+        if (window.top) {
+          (window.top as Window).location.href = url;
+          return;
+        }
+      } catch (_) {}
+
+      // 2) Try opening a new tab
+      const w = window.open(url, '_blank', 'noopener,noreferrer');
+      if (w) return;
+
+      // 3) Create a temporary anchor and click it
+      try {
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
         return;
-      }
-    } catch (_) {}
+      } catch (_) {}
+    }
 
-    // 2) Try opening a new tab
-    const w = window.open(url, '_blank', 'noopener,noreferrer');
-    if (w) return;
-
-    // 3) Create a temporary anchor and click it
-    try {
-      const a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      return;
-    } catch (_) {}
-
-    // 4) Fallback: copy to clipboard and inform the user
+    // 4) Fallback in embedded preview or if all else fails: copy to clipboard and inform the user
     try {
       await navigator.clipboard.writeText(url);
       toast({
