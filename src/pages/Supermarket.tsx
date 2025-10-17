@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock, Navigation } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
+import SupermarketMap from '@/components/SupermarketMap';
 
 interface ShoppingItem {
   id: string;
@@ -307,6 +308,29 @@ const Supermarket = () => {
           </p>
         )}
       </div>
+
+      {/* Map View */}
+      {filteredSupermarkets.length > 0 && (
+        <Card className="shadow-soft">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <MapPin className="h-5 w-5 text-accent" />
+              {i18n.language === 'el' ? 'Χάρτης Σούπερ Μάρκετ' : 'Supermarket Map'}
+            </CardTitle>
+            <p className="text-sm text-muted-foreground mt-2">
+              {i18n.language === 'el' 
+                ? 'Κλικ στους δείκτες για λεπτομέρειες. Το μπλε είναι η τοποθεσία σας.'
+                : 'Click markers for details. Blue marker is your location.'}
+            </p>
+          </CardHeader>
+          <CardContent>
+            <SupermarketMap 
+              supermarkets={filteredSupermarkets}
+              userLocation={userLocation}
+            />
+          </CardContent>
+        </Card>
+      )}
 
       {/* Nearby Supermarkets */}
       <Card className="shadow-soft">
