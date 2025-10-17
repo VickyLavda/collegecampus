@@ -9,12 +9,27 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { User, Session } from '@supabase/supabase-js';
+import { z } from 'zod';
+
+const signUpSchema = z.object({
+  email: z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters'),
+  password: z.string().min(8, 'Password must be at least 8 characters').max(100, 'Password must be less than 100 characters'),
+  firstName: z.string().trim().min(1, 'First name is required').max(100, 'First name must be less than 100 characters'),
+  country: z.string().min(1, 'Country is required'),
+  city: z.string().trim().min(1, 'City is required').max(100, 'City must be less than 100 characters'),
+});
+
+const signInSchema = z.object({
+  email: z.string().trim().email('Invalid email address').max(255),
+  password: z.string().min(1, 'Password is required'),
+});
 
 const Auth = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [authChecking, setAuthChecking] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   
@@ -26,15 +41,6 @@ const Auth = () => {
   const [city, setCity] = useState('');
 
   useEffect(() => {
-    // Check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session) {
-        navigate('/');
-      }
-    });
-
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
@@ -46,28 +52,47 @@ const Auth = () => {
       }
     );
 
+    // Check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      setAuthChecking(false);
+      if (session) {
+        navigate('/');
+      }
+    });
+
     return () => subscription.unsubscribe();
   }, [navigate]);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !password || !firstName || !country || !city) {
-      toast.error('Please fill in all fields');
+    const validation = signUpSchema.safeParse({
+      email,
+      password,
+      firstName,
+      country,
+      city,
+    });
+
+    if (!validation.success) {
+      const firstError = validation.error.errors[0];
+      toast.error(firstError.message);
       return;
     }
 
     setLoading(true);
 
     const { error } = await supabase.auth.signUp({
-      email,
-      password,
+      email: validation.data.email,
+      password: validation.data.password,
       options: {
         emailRedirectTo: `${window.location.origin}/`,
         data: {
-          first_name: firstName,
-          country,
-          city,
+          first_name: validation.data.firstName,
+          country: validation.data.country,
+          city: validation.data.city,
         },
       },
     });
@@ -84,16 +109,22 @@ const Auth = () => {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !password) {
-      toast.error('Please fill in all fields');
+    const validation = signInSchema.safeParse({
+      email,
+      password,
+    });
+
+    if (!validation.success) {
+      const firstError = validation.error.errors[0];
+      toast.error(firstError.message);
       return;
     }
 
     setLoading(true);
 
     const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+      email: validation.data.email,
+      password: validation.data.password,
     });
 
     if (error) {
@@ -104,6 +135,14 @@ const Auth = () => {
 
     setLoading(false);
   };
+
+  if (authChecking) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+        <p className="text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-background">

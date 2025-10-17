@@ -45,6 +45,7 @@ const Supermarket = () => {
   
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
+  const [authChecking, setAuthChecking] = useState(true);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [supermarkets, setSupermarkets] = useState<Supermarket[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,15 +58,6 @@ const Supermarket = () => {
 
   // Check authentication
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      
-      if (!session) {
-        navigate('/auth');
-      }
-    });
-
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setSession(session);
@@ -76,6 +68,16 @@ const Supermarket = () => {
         }
       }
     );
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      setAuthChecking(false);
+      
+      if (!session) {
+        navigate('/auth');
+      }
+    });
 
     return () => subscription.unsubscribe();
   }, [navigate]);
@@ -95,10 +97,9 @@ const Supermarket = () => {
         .single();
 
       if (profileError) {
-        console.error('Error fetching profile:', profileError);
         toast({
           title: 'Error loading profile',
-          description: profileError.message,
+          description: 'Unable to load your profile. Please try again later.',
           variant: 'destructive',
         });
       } else {
@@ -113,7 +114,11 @@ const Supermarket = () => {
           .order('name');
 
         if (supermarketsError) {
-          console.error('Error fetching supermarkets:', supermarketsError);
+          toast({
+            title: 'Error loading supermarkets',
+            description: 'Unable to load nearby supermarkets.',
+            variant: 'destructive',
+          });
         } else {
           setSupermarkets(supermarketsData || []);
         }
@@ -247,7 +252,7 @@ const Supermarket = () => {
         'Coffee/tea',
       ];
 
-  if (loading) {
+  if (authChecking || loading) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
         <p className="text-muted-foreground">{t('common.loading')}</p>
