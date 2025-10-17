@@ -219,17 +219,11 @@ const Supermarket = () => {
     market.city.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const openDirections = (market: Supermarket) => {
+  const getDirectionsUrl = (market: Supermarket) => {
     if (market.latitude && market.longitude) {
-      window.open(
-        `https://www.google.com/maps/dir/?api=1&destination=${market.latitude},${market.longitude}`,
-        '_blank'
-      );
+      return `https://www.google.com/maps/dir/?api=1&destination=${market.latitude},${market.longitude}`;
     } else {
-      window.open(
-        `https://www.google.com/maps/search/${encodeURIComponent(market.name + ' ' + market.address)}`,
-        '_blank'
-      );
+      return `https://www.google.com/maps/search/${encodeURIComponent(market.name + ' ' + market.address)}`;
     }
   };
 
@@ -347,14 +341,23 @@ const Supermarket = () => {
                       )}
                     </div>
                   </div>
-                  <Button
-                    onClick={() => openDirections(market)}
-                    size="sm"
+                  <a
+                    href={getDirectionsUrl(market)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full"
                   >
-                    <Navigation className="mr-2 h-4 w-4" />
-                    {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
-                  </Button>
+                    <Button
+                      size="sm"
+                      className="w-full"
+                      asChild
+                    >
+                      <span className="flex items-center justify-center">
+                        <Navigation className="mr-2 h-4 w-4" />
+                        {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
+                      </span>
+                    </Button>
+                  </a>
                 </div>
               ))
             ) : (
