@@ -10,7 +10,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock, Navigation } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
-import SupermarketMap from '@/components/SupermarketMap';
 
 interface ShoppingItem {
   id: string;
@@ -246,52 +245,9 @@ const Supermarket = () => {
       : `https://www.google.com/maps/search/?api=1&query=${dest}`;
   };
 
-  const openDirectionsSafe = async (market: SupermarketData) => {
+  const openDirections = (market: SupermarketData) => {
     const url = getDirectionsLink(market);
-
-    const isEmbedded = (() => {
-      try { return window.self !== window.top; } catch { return true; }
-    })();
-
-    if (!isEmbedded) {
-      // 1) Try to navigate the top window (break out of iframe)
-      try {
-        if (window.top) {
-          (window.top as Window).location.href = url;
-          return;
-        }
-      } catch (_) {}
-
-      // 2) Try opening a new tab
-      const w = window.open(url, '_blank', 'noopener,noreferrer');
-      if (w) return;
-
-      // 3) Create a temporary anchor and click it
-      try {
-        const a = document.createElement('a');
-        a.href = url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        return;
-      } catch (_) {}
-    }
-
-    // 4) Fallback in embedded preview or if all else fails: copy to clipboard and inform the user
-    try {
-      await navigator.clipboard.writeText(url);
-      toast({
-        title: i18n.language === 'el' ? 'Αντιγράφηκε ο σύνδεσμος' : 'Link copied',
-        description:
-          i18n.language === 'el'
-            ? 'Οι εξωτερικοί σύνδεσμοι μπλοκάρονται στην προεπισκόπηση. Επικολλήστε τον σύνδεσμο σε νέα καρτέλα.'
-            : 'External links are blocked in preview. Paste the link into a new tab to open directions.',
-      });
-    } catch (_) {
-      alert(url);
-    }
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const budgetTips = i18n.language === 'el'
@@ -352,30 +308,6 @@ const Supermarket = () => {
         )}
       </div>
 
-      {/* Map View */}
-      {filteredSupermarkets.length > 0 && (
-        <Card className="shadow-soft">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <MapPin className="h-5 w-5 text-accent" />
-              {i18n.language === 'el' ? 'Χάρτης Σούπερ Μάρκετ' : 'Supermarket Map'}
-            </CardTitle>
-            <p className="text-sm text-muted-foreground mt-2">
-              {i18n.language === 'el' 
-                ? 'Κλικ στους δείκτες για λεπτομέρειες. Το μπλε είναι η τοποθεσία σας.'
-                : 'Click markers for details. Blue marker is your location.'}
-            </p>
-          </CardHeader>
-          <CardContent>
-            <SupermarketMap 
-              supermarkets={filteredSupermarkets}
-              userLocation={userLocation}
-              onMarkerClick={(market) => openDirectionsSafe(market)}
-            />
-          </CardContent>
-        </Card>
-      )}
-
       {/* Nearby Supermarkets */}
       <Card className="shadow-soft">
         <CardHeader>
@@ -435,7 +367,7 @@ const Supermarket = () => {
                   <Button
                     size="sm"
                     className="w-full"
-                    onClick={() => openDirectionsSafe(market)}
+                    onClick={() => openDirections(market)}
                   >
                     <Navigation className="mr-2 h-4 w-4" />
                     {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
