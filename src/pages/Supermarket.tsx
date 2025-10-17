@@ -251,9 +251,46 @@ const Supermarket = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const handleFindSupermarket = () => {
+  const handleFindSupermarket = async () => {
     const url = 'https://www.google.com/maps/search/supermarket+near+me';
-    window.open(url, '_blank', 'noopener,noreferrer');
+    
+    // Try multiple methods to open the link
+    try {
+      if (window.top && window.top !== window.self) {
+        (window.top as Window).location.href = url;
+        return;
+      }
+    } catch (_) {
+      // Cross-origin blocked
+    }
+
+    const w = window.open(url, '_blank', 'noopener,noreferrer');
+    if (w) return;
+
+    try {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      return;
+    } catch (_) {
+      // Fallback: copy to clipboard
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      toast({
+        title: i18n.language === 'el' ? 'Αντιγράφηκε ο σύνδεσμος' : 'Link copied',
+        description: i18n.language === 'el' 
+          ? 'Επικολλήστε τον σύνδεσμο σε νέα καρτέλα για να ανοίξετε τον χάρτη.'
+          : 'Paste the link in a new tab to open the map.',
+      });
+    } catch (_) {
+      alert(url);
+    }
   };
 
   const budgetTips = i18n.language === 'el'
