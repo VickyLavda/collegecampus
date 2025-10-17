@@ -105,26 +105,53 @@ const SupermarketMap = ({ supermarkets, userLocation, onMarkerClick }: Supermark
       el.style.cursor = 'pointer';
       el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.3)';
 
+      // Create popup with button
+      const popup = new mapboxgl.Popup({ offset: 25, closeButton: true });
+      
       const marker = new mapboxgl.Marker(el)
         .setLngLat([supermarket.longitude, supermarket.latitude])
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 })
-            .setHTML(`
-              <div style="padding: 12px; min-width: 200px;">
-                <h3 style="margin: 0 0 8px 0; font-weight: bold; font-size: 14px;">${supermarket.name}</h3>
-                <p style="margin: 0; font-size: 12px; color: #666;">${supermarket.address}</p>
-                ${supermarket.distance ? `<p style="margin: 4px 0 0 0; font-size: 12px; color: #10b981; font-weight: 600;">${supermarket.distance.toFixed(1)} km away</p>` : ''}
-              </div>
-            `)
-        )
+        .setPopup(popup)
         .addTo(map.current);
 
-      // Add click handler
-      if (onMarkerClick) {
-        el.addEventListener('click', () => {
-          onMarkerClick(supermarket);
-        });
-      }
+      // Set popup content with event listener
+      marker.getPopup().on('open', () => {
+        const popupContent = document.createElement('div');
+        popupContent.style.padding = '12px';
+        popupContent.style.minWidth = '200px';
+        
+        popupContent.innerHTML = `
+          <h3 style="margin: 0 0 8px 0; font-weight: bold; font-size: 14px;">${supermarket.name}</h3>
+          <p style="margin: 0 0 8px 0; font-size: 12px; color: #666;">${supermarket.address}</p>
+          ${supermarket.distance ? `<p style="margin: 0 0 8px 0; font-size: 12px; color: #10b981; font-weight: 600;">${supermarket.distance.toFixed(1)} km away</p>` : ''}
+          <button 
+            id="directions-btn-${supermarket.id}"
+            style="
+              width: 100%;
+              padding: 8px 16px;
+              background: #10b981;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 13px;
+              font-weight: 600;
+              cursor: pointer;
+              margin-top: 8px;
+            "
+          >
+            📍 Get Directions
+          </button>
+        `;
+        
+        popup.setDOMContent(popupContent);
+        
+        // Add click handler to button
+        const btn = document.getElementById(`directions-btn-${supermarket.id}`);
+        if (btn && onMarkerClick) {
+          btn.addEventListener('click', () => {
+            onMarkerClick(supermarket);
+          });
+        }
+      });
 
       markers.current.push(marker);
     });
