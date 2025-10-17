@@ -115,7 +115,16 @@ const RecipeDetail = () => {
 
         {/* Current Step Card */}
         <Card className="flex-1 shadow-strong">
-          <CardContent className="p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
+          <CardContent className="p-8 flex flex-col items-center justify-center text-center">
+            {recipe.instructionImages && recipe.instructionImages[currentStep] && (
+              <div className="w-full mb-6 rounded-lg overflow-hidden">
+                <img 
+                  src={recipe.instructionImages[currentStep]} 
+                  alt={`Step ${currentStep + 1}`}
+                  className="w-full h-48 object-cover"
+                />
+              </div>
+            )}
             <div className="w-16 h-16 rounded-full bg-accent text-primary flex items-center justify-center text-2xl font-bold mb-6">
               {currentStep + 1}
             </div>
