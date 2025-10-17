@@ -16,12 +16,6 @@ interface ShoppingItem {
   checked: boolean;
 }
 
-interface SavedStore {
-  id: string;
-  name: string;
-  address: string;
-}
-
 interface Supermarket {
   id: string;
   name: string;
@@ -51,9 +45,6 @@ const Supermarket = () => {
   
   const [shoppingList, setShoppingList] = useState<ShoppingItem[]>([]);
   const [newItem, setNewItem] = useState('');
-  const [savedStores, setSavedStores] = useState<SavedStore[]>([]);
-  const [storeName, setStoreName] = useState('');
-  const [storeAddress, setStoreAddress] = useState('');
 
   // Check authentication
   useEffect(() => {
@@ -128,19 +119,13 @@ const Supermarket = () => {
   // Load from localStorage
   useEffect(() => {
     const savedList = localStorage.getItem('shoppingList');
-    const savedStoresList = localStorage.getItem('savedStores');
     if (savedList) setShoppingList(JSON.parse(savedList));
-    if (savedStoresList) setSavedStores(JSON.parse(savedStoresList));
   }, []);
 
   // Save to localStorage
   useEffect(() => {
     localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
   }, [shoppingList]);
-
-  useEffect(() => {
-    localStorage.setItem('savedStores', JSON.stringify(savedStores));
-  }, [savedStores]);
 
   const addShoppingItem = () => {
     if (!newItem.trim()) return;
@@ -174,26 +159,6 @@ const Supermarket = () => {
     toast({
       title: t('supermarket.clearedCompleted'),
     });
-  };
-
-  const addStore = () => {
-    if (!storeName.trim() || !storeAddress.trim()) return;
-    const store: SavedStore = {
-      id: Date.now().toString(),
-      name: storeName.trim(),
-      address: storeAddress.trim(),
-    };
-    setSavedStores([...savedStores, store]);
-    setStoreName('');
-    setStoreAddress('');
-    toast({
-      title: t('supermarket.storeAdded'),
-      description: storeName,
-    });
-  };
-
-  const deleteStore = (id: string) => {
-    setSavedStores(savedStores.filter((store) => store.id !== id));
   };
 
   const findNearbyStores = () => {
@@ -392,59 +357,6 @@ const Supermarket = () => {
                 </Button>
               )}
             </>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Saved Stores */}
-      <Card className="shadow-soft">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <Store className="h-5 w-5 text-accent" />
-            {t('supermarket.savedStores')}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Input
-              placeholder={t('supermarket.storeName')}
-              value={storeName}
-              onChange={(e) => setStoreName(e.target.value)}
-            />
-            <Input
-              placeholder={t('supermarket.storeAddress')}
-              value={storeAddress}
-              onChange={(e) => setStoreAddress(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && addStore()}
-            />
-            <Button onClick={addStore} className="w-full">
-              <Plus className="mr-2 h-4 w-4" />
-              {t('supermarket.addStore')}
-            </Button>
-          </div>
-
-          {savedStores.length > 0 && (
-            <div className="space-y-2 mt-4">
-              {savedStores.map((store) => (
-                <div
-                  key={store.id}
-                  className="flex items-start gap-2 p-3 rounded-lg border bg-secondary/20"
-                >
-                  <Store className="h-4 w-4 text-accent mt-1" />
-                  <div className="flex-1">
-                    <p className="font-medium">{store.name}</p>
-                    <p className="text-sm text-muted-foreground">{store.address}</p>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => deleteStore(store.id)}
-                  >
-                    <Trash2 className="h-4 w-4 text-destructive" />
-                  </Button>
-                </div>
-              ))}
-            </div>
           )}
         </CardContent>
       </Card>
