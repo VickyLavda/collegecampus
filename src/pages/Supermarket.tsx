@@ -6,11 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock, Navigation } from 'lucide-react';
+import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
-import SupermarketMap from '@/components/SupermarketMap';
 
 interface ShoppingItem {
   id: string;
@@ -18,7 +16,13 @@ interface ShoppingItem {
   checked: boolean;
 }
 
-interface SupermarketData {
+interface SavedStore {
+  id: string;
+  name: string;
+  address: string;
+}
+
+interface Supermarket {
   id: string;
   name: string;
   address: string;
@@ -27,9 +31,6 @@ interface SupermarketData {
   phone?: string;
   hours?: string;
   website?: string;
-  latitude?: number;
-  longitude?: number;
-  distance?: number;
 }
 
 interface Profile {
@@ -45,13 +46,14 @@ const Supermarket = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [supermarkets, setSupermarkets] = useState<SupermarketData[]>([]);
+  const [supermarkets, setSupermarkets] = useState<Supermarket[]>([]);
   const [loading, setLoading] = useState(true);
   
   const [shoppingList, setShoppingList] = useState<ShoppingItem[]>([]);
   const [newItem, setNewItem] = useState('');
-  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [savedStores, setSavedStores] = useState<SavedStore[]>([]);
+  const [storeName, setStoreName] = useState('');
+  const [storeAddress, setStoreAddress] = useState('');
 
   // Check authentication
   useEffect(() => {
@@ -123,38 +125,22 @@ const Supermarket = () => {
     fetchData();
   }, [user, toast]);
 
-  // Request geolocation
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setUserLocation({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error('Error getting location:', error);
-          toast({
-            title: 'Location access denied',
-            description: 'Please enable location to see nearby supermarkets',
-            variant: 'destructive',
-          });
-        }
-      );
-    }
-  }, [toast]);
-
   // Load from localStorage
   useEffect(() => {
     const savedList = localStorage.getItem('shoppingList');
+    const savedStoresList = localStorage.getItem('savedStores');
     if (savedList) setShoppingList(JSON.parse(savedList));
+    if (savedStoresList) setSavedStores(JSON.parse(savedStoresList));
   }, []);
 
   // Save to localStorage
   useEffect(() => {
     localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
   }, [shoppingList]);
+
+  useEffect(() => {
+    localStorage.setItem('savedStores', JSON.stringify(savedStores));
+  }, [savedStores]);
 
   const addShoppingItem = () => {
     if (!newItem.trim()) return;
@@ -190,106 +176,42 @@ const Supermarket = () => {
     });
   };
 
-  // Calculate distance between two coordinates (Haversine formula)
-  const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
-    const R = 6371; // Earth's radius in km
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
+  const addStore = () => {
+    if (!storeName.trim() || !storeAddress.trim()) return;
+    const store: SavedStore = {
+      id: Date.now().toString(),
+      name: storeName.trim(),
+      address: storeAddress.trim(),
+    };
+    setSavedStores([...savedStores, store]);
+    setStoreName('');
+    setStoreAddress('');
+    toast({
+      title: t('supermarket.storeAdded'),
+      description: storeName,
+    });
   };
 
-  // Get supermarkets with distances
-  const supermarketsWithDistance = userLocation
-    ? supermarkets.map((market) => ({
-        ...market,
-        distance: market.latitude && market.longitude
-          ? calculateDistance(userLocation.lat, userLocation.lng, market.latitude, market.longitude)
-          : undefined,
-      })).sort((a, b) => (a.distance || 999) - (b.distance || 999))
-    : supermarkets;
-
-  // Filter supermarkets by search query
-  const filteredSupermarkets = supermarketsWithDistance.filter((market) =>
-    market.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    market.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    market.city.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const getDirectionsLink = (market: SupermarketData) => {
-    const hasCoords = market.latitude && market.longitude;
-    const dest = hasCoords
-      ? `${market.latitude},${market.longitude}`
-      : encodeURIComponent(`${market.name} ${market.address} ${market.city} ${market.country}`);
-
-    const isEmbedded = (() => {
-      try { return window.self !== window.top; } catch { return true; }
-    })();
-
-    const ua = navigator.userAgent || '';
-    const isApple = /iPhone|iPad|iPod|Macintosh/.test(ua);
-
-    // In embedded preview, always use Google Maps links to avoid apple.com blocking
-    if (!isEmbedded && isApple) {
-      return hasCoords
-        ? `https://maps.apple.com/?daddr=${dest}`
-        : `https://maps.apple.com/?q=${dest}`;
-    }
-
-    // Default to Google Maps
-    return hasCoords
-      ? `https://www.google.com/maps/dir/?api=1&destination=${dest}`
-      : `https://www.google.com/maps/search/?api=1&query=${dest}`;
+  const deleteStore = (id: string) => {
+    setSavedStores(savedStores.filter((store) => store.id !== id));
   };
 
-  const openDirections = (market: SupermarketData) => {
-    const url = getDirectionsLink(market);
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  const handleFindSupermarket = async () => {
-    const url = 'https://www.google.com/maps/search/supermarket+near+me';
-    
-    // Try multiple methods to open the link
-    try {
-      if (window.top && window.top !== window.self) {
-        (window.top as Window).location.href = url;
-        return;
-      }
-    } catch (_) {
-      // Cross-origin blocked
-    }
-
-    const w = window.open(url, '_blank', 'noopener,noreferrer');
-    if (w) return;
-
-    try {
-      const a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      return;
-    } catch (_) {
-      // Fallback: copy to clipboard
-    }
-
-    try {
-      await navigator.clipboard.writeText(url);
-      toast({
-        title: i18n.language === 'el' ? 'Αντιγράφηκε ο σύνδεσμος' : 'Link copied',
-        description: i18n.language === 'el' 
-          ? 'Επικολλήστε τον σύνδεσμο σε νέα καρτέλα για να ανοίξετε τον χάρτη.'
-          : 'Paste the link in a new tab to open the map.',
-      });
-    } catch (_) {
-      alert(url);
+  const findNearbyStores = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          window.open(
+            `https://www.google.com/maps/search/supermarket/@${latitude},${longitude},15z`,
+            '_blank'
+          );
+        },
+        () => {
+          window.open('https://www.google.com/maps/search/supermarket', '_blank');
+        }
+      );
+    } else {
+      window.open('https://www.google.com/maps/search/supermarket', '_blank');
     }
   };
 
@@ -349,113 +271,19 @@ const Supermarket = () => {
               : `Supermarkets in ${profile.city}, ${profile.country}`}
           </p>
         )}
-        
-        {/* Find Supermarket Button */}
-        <Button
-          onClick={handleFindSupermarket}
-          className="mt-4"
-          size="lg"
-        >
-          <Store className="mr-2 h-5 w-5" />
-          {i18n.language === 'el' ? 'Βρες Σούπερ Μάρκετ' : 'Find Supermarket'}
-        </Button>
       </div>
 
-      {/* Map View */}
-      {filteredSupermarkets.length > 0 && (
-        <Card className="shadow-soft">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <MapPin className="h-5 w-5 text-accent" />
-              {i18n.language === 'el' ? 'Χάρτης Σούπερ Μάρκετ' : 'Supermarket Map'}
-            </CardTitle>
-            <p className="text-sm text-muted-foreground mt-2">
-              {i18n.language === 'el' 
-                ? 'Κλικ στους δείκτες για λεπτομέρειες. Το μπλε είναι η τοποθεσία σας.'
-                : 'Click markers for details. Blue marker is your location.'}
-            </p>
-          </CardHeader>
-          <CardContent>
-            <SupermarketMap 
-              supermarkets={filteredSupermarkets}
-              userLocation={userLocation}
-            />
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Nearby Supermarkets */}
+      {/* Find Nearby Stores */}
       <Card className="shadow-soft">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <Store className="h-5 w-5 text-accent" />
-            {i18n.language === 'el' ? 'Κοντινά Σούπερ Μάρκετ' : 'Nearby Supermarkets'}
-          </CardTitle>
-          <p className="text-sm text-muted-foreground mt-2">
-            {i18n.language === 'el' 
-              ? 'Η τοποθεσία σας χρησιμοποιείται μόνο για την εύρεση κοντινών σούπερ μάρκετ και δεν αποθηκεύεται ποτέ.'
-              : 'Your location is used only to find nearby supermarkets and is never stored.'}
-          </p>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Search Bar */}
-          <Input
-            placeholder={i18n.language === 'el' ? 'Αναζήτηση με όνομα ή περιοχή...' : 'Search by name or area...'}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full"
-          />
-
-          {/* Supermarket List */}
-          <div className="space-y-3">
-            {filteredSupermarkets.length > 0 ? (
-              filteredSupermarkets.slice(0, 10).map((market) => (
-                <div
-                  key={market.id}
-                  className="p-4 rounded-lg border bg-secondary/20 space-y-2"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-foreground">{market.name}</h3>
-                      <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                        <MapPin className="h-3 w-3" />
-                        {market.address}, {market.city}
-                      </p>
-                      {market.distance && (
-                        <p className="text-sm text-accent mt-1">
-                          {market.distance.toFixed(1)} km {i18n.language === 'el' ? 'μακριά' : 'away'}
-                        </p>
-                      )}
-                      {market.phone && (
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                          <Phone className="h-3 w-3" />
-                          {market.phone}
-                        </p>
-                      )}
-                      {market.hours && (
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                          <Clock className="h-3 w-3" />
-                          {market.hours}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                  <Button
-                    size="sm"
-                    className="w-full"
-                    onClick={() => openDirections(market)}
-                  >
-                    <Navigation className="mr-2 h-4 w-4" />
-                    {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
-                  </Button>
-                </div>
-              ))
-            ) : (
-              <p className="text-center text-muted-foreground py-8">
-                {i18n.language === 'el' ? 'Δεν βρέθηκαν σούπερ μάρκετ' : 'No supermarkets found'}
-              </p>
-            )}
-          </div>
+        <CardContent className="pt-6">
+          <Button
+            onClick={findNearbyStores}
+            className="w-full h-12 text-lg"
+            size="lg"
+          >
+            <MapPin className="mr-2 h-5 w-5" />
+            {t('supermarket.findNearby')}
+          </Button>
         </CardContent>
       </Card>
 
@@ -564,6 +392,59 @@ const Supermarket = () => {
                 </Button>
               )}
             </>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Saved Stores */}
+      <Card className="shadow-soft">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-foreground">
+            <Store className="h-5 w-5 text-accent" />
+            {t('supermarket.savedStores')}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Input
+              placeholder={t('supermarket.storeName')}
+              value={storeName}
+              onChange={(e) => setStoreName(e.target.value)}
+            />
+            <Input
+              placeholder={t('supermarket.storeAddress')}
+              value={storeAddress}
+              onChange={(e) => setStoreAddress(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && addStore()}
+            />
+            <Button onClick={addStore} className="w-full">
+              <Plus className="mr-2 h-4 w-4" />
+              {t('supermarket.addStore')}
+            </Button>
+          </div>
+
+          {savedStores.length > 0 && (
+            <div className="space-y-2 mt-4">
+              {savedStores.map((store) => (
+                <div
+                  key={store.id}
+                  className="flex items-start gap-2 p-3 rounded-lg border bg-secondary/20"
+                >
+                  <Store className="h-4 w-4 text-accent mt-1" />
+                  <div className="flex-1">
+                    <p className="font-medium">{store.name}</p>
+                    <p className="text-sm text-muted-foreground">{store.address}</p>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => deleteStore(store.id)}
+                  >
+                    <Trash2 className="h-4 w-4 text-destructive" />
+                  </Button>
+                </div>
+              ))}
+            </div>
           )}
         </CardContent>
       </Card>

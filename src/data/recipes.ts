@@ -9,7 +9,6 @@ export interface Recipe {
   ingredientsEl: string[];
   instructions: string[];
   instructionsEl: string[];
-  instructionImages: string[];
 }
 
 export const recipes: Recipe[] = [
@@ -51,14 +50,6 @@ export const recipes: Recipe[] = [
       'Στραγγίξτε τα ζυμαρικά, ανακατέψτε με το μπέικον',
       'Αφαιρέστε από τη φωτιά, προσθέστε το μείγμα αυγών',
       'Ανακατέψτε γρήγορα και σερβίρετε αμέσως',
-    ],
-    instructionImages: [
-      '/src/assets/recipe-steps/carbonara-1.jpg',
-      '/src/assets/recipe-steps/carbonara-2.jpg',
-      '/src/assets/recipe-steps/carbonara-3.jpg',
-      '/src/assets/recipe-steps/carbonara-4.jpg',
-      '/src/assets/recipe-steps/carbonara-5.jpg',
-      '/src/assets/recipe-steps/carbonara-6.jpg',
     ],
   },
   {
@@ -102,14 +93,6 @@ export const recipes: Recipe[] = [
       'Πασπαλίστε με ρίγανη',
       'Ανακατέψτε απαλά και σερβίρετε',
     ],
-    instructionImages: [
-      '/src/assets/recipe-steps/salad-1.jpg',
-      '/src/assets/recipe-steps/salad-2.jpg',
-      '/src/assets/recipe-steps/salad-3.jpg',
-      '/src/assets/recipe-steps/salad-4.jpg',
-      '/src/assets/recipe-steps/salad-5.jpg',
-      '/src/assets/recipe-steps/salad-6.jpg',
-    ],
   },
   {
     id: '3',
@@ -151,14 +134,6 @@ export const recipes: Recipe[] = [
       'Χτυπήστε τα αυγά με αλάτι και πιπέρι',
       'Ρίξτε τα αυγά στο τηγάνι',
       'Ανακατέψτε μέχρι να ψηθούν, προσθέστε τυρί αν θέλετε',
-    ],
-    instructionImages: [
-      '/src/assets/recipe-steps/scramble-1.jpg',
-      '/src/assets/recipe-steps/scramble-2.jpg',
-      '/src/assets/recipe-steps/scramble-3.jpg',
-      '/src/assets/recipe-steps/scramble-4.jpg',
-      '/src/assets/recipe-steps/scramble-5.jpg',
-      '/src/assets/recipe-steps/scramble-6.jpg',
     ],
   },
   {
@@ -204,14 +179,6 @@ export const recipes: Recipe[] = [
       'Συναρμολογήστε το μπολ: ρύζι, κοτόπουλο, λαχανικά',
       'Γαρνίρετε με τζατζίκι και σερβίρετε',
     ],
-    instructionImages: [
-      '/src/assets/recipe-steps/souvlaki-1.jpg',
-      '/src/assets/recipe-steps/souvlaki-2.jpg',
-      '/src/assets/recipe-steps/souvlaki-3.jpg',
-      '/src/assets/recipe-steps/souvlaki-4.jpg',
-      '/src/assets/recipe-steps/souvlaki-5.jpg',
-      '/src/assets/recipe-steps/souvlaki-6.jpg',
-    ],
   },
   {
     id: '5',
@@ -254,14 +221,6 @@ export const recipes: Recipe[] = [
       'Σπρώξτε τα λαχανικά στο πλάι, ανακατέψτε τα αυγά',
       'Ανακατέψτε όλα μαζί, προσθέστε σόγια σος και σερβίρετε με ρύζι/noodles',
     ],
-    instructionImages: [
-      '/src/assets/recipe-steps/stirfry-1.jpg',
-      '/src/assets/recipe-steps/stirfry-2.jpg',
-      '/src/assets/recipe-steps/stirfry-3.jpg',
-      '/src/assets/recipe-steps/stirfry-4.jpg',
-      '/src/assets/recipe-steps/stirfry-5.jpg',
-      '/src/assets/recipe-steps/stirfry-6.jpg',
-    ],
   },
   {
     id: '6',
@@ -299,14 +258,6 @@ export const recipes: Recipe[] = [
       'Τοποθετήστε το τοστ στο τηγάνι',
       'Μαγειρέψτε 2-3 λεπτά ανά πλευρά μέχρι να ροδίσει',
       'Αφήστε να κρυώσει για 1 λεπτό, κόψτε και σερβίρετε',
-    ],
-    instructionImages: [
-      '/src/assets/recipe-steps/grilled-cheese-1.jpg',
-      '/src/assets/recipe-steps/grilled-cheese-2.jpg',
-      '/src/assets/recipe-steps/grilled-cheese-3.jpg',
-      '/src/assets/recipe-steps/grilled-cheese-4.jpg',
-      '/src/assets/recipe-steps/grilled-cheese-5.jpg',
-      '/src/assets/recipe-steps/grilled-cheese-6.jpg',
     ],
   },
   {
@@ -355,15 +306,6 @@ export const recipes: Recipe[] = [
       'Σιγοβράστε για 10-15 λεπτά μέχρι να πηχτεί',
       'Στραγγίξτε τα σπαγγέτι, ανακατέψτε με τη σάλτσα και σερβίρετε με τριμμένο τυρί',
       'Συμβουλή: Μπορείτε να αντικαταστήσετε το βοδινό με φακές για μια χορτοφαγική εκδοχή',
-    ],
-    instructionImages: [
-      '/src/assets/recipe-steps/bolognese-1.jpg',
-      '/src/assets/recipe-steps/bolognese-2.jpg',
-      '/src/assets/recipe-steps/bolognese-3.jpg',
-      '/src/assets/recipe-steps/bolognese-4.jpg',
-      '/src/assets/recipe-steps/bolognese-5.jpg',
-      '/src/assets/recipe-steps/bolognese-6.jpg',
-      '/src/assets/recipe-steps/bolognese-7.jpg',
     ],
   },
 ];
