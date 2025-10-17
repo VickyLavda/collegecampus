@@ -19,8 +19,10 @@ const SOS = () => {
     window.location.href = 'tel:112';
   };
 
+  const pharmacyUrl = 'https://www.google.com/maps/search/pharmacy+near+me';
+
   const handleFindPharmacy = async () => {
-    const url = 'https://www.google.com/maps/search/pharmacy+near+me';
+    const url = pharmacyUrl;
     
     // Try multiple methods to open the link
     try {
@@ -50,6 +52,18 @@ const SOS = () => {
       });
     } catch (_) {
       alert(url);
+    }
+  };
+
+  const handleCopyPharmacyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(pharmacyUrl);
+      toast({
+        title: t('common.linkCopied') || 'Link copied',
+        description: 'Pharmacy search link copied. Paste it in a new tab if the preview blocks external sites.',
+      });
+    } catch (_) {
+      alert(pharmacyUrl);
     }
   };
 
@@ -143,6 +157,13 @@ const SOS = () => {
         >
           <Pill className="h-6 w-6 mr-2" />
           {t('sos.findPharmacy')}
+        </Button>
+        <Button
+          onClick={handleCopyPharmacyLink}
+          className="w-full h-10 text-sm"
+          variant="outline"
+        >
+          {t('common.copyLink') || 'Copy pharmacy link'}
         </Button>
 
         <Button
