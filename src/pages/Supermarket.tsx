@@ -251,6 +251,11 @@ const Supermarket = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  const handleFindSupermarket = () => {
+    const url = 'https://www.google.com/maps/search/supermarket+near+me';
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   const budgetTips = i18n.language === 'el'
     ? [
         'Αγοράστε προϊόντα ιδιωτικής ετικέτας - εξοικονομήστε έως 30%',
@@ -307,6 +312,16 @@ const Supermarket = () => {
               : `Supermarkets in ${profile.city}, ${profile.country}`}
           </p>
         )}
+        
+        {/* Find Supermarket Button */}
+        <Button
+          onClick={handleFindSupermarket}
+          className="mt-4"
+          size="lg"
+        >
+          <Store className="mr-2 h-5 w-5" />
+          {i18n.language === 'el' ? 'Βρες Σούπερ Μάρκετ' : 'Find Supermarket'}
+        </Button>
       </div>
 
       {/* Map View */}
