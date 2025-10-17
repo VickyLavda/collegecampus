@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 interface SupermarketData {
   id: string;
@@ -23,19 +25,36 @@ const SupermarketMap = ({ supermarkets, userLocation, onMarkerClick }: Supermark
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markers = useRef<mapboxgl.Marker[]>([]);
+  const [mapboxToken, setMapboxToken] = useState<string>('');
+  const [tokenInput, setTokenInput] = useState<string>('');
+  const [showTokenInput, setShowTokenInput] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!mapContainer.current) return;
-
-    // Get token from environment (set via Edge Function secrets)
-    const token = import.meta.env.VITE_MAPBOX_PUBLIC_TOKEN;
+    // Try to get token from environment or state
+    const envToken = import.meta.env.VITE_MAPBOX_PUBLIC_TOKEN;
+    const savedToken = localStorage.getItem('mapboxToken');
     
-    if (!token) {
-      console.error('Mapbox token not found');
-      return;
+    if (envToken) {
+      setMapboxToken(envToken);
+    } else if (savedToken) {
+      setMapboxToken(savedToken);
+    } else {
+      setShowTokenInput(true);
     }
+  }, []);
 
-    mapboxgl.accessToken = token;
+  const handleTokenSubmit = () => {
+    if (tokenInput.trim()) {
+      localStorage.setItem('mapboxToken', tokenInput.trim());
+      setMapboxToken(tokenInput.trim());
+      setShowTokenInput(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!mapContainer.current || !mapboxToken) return;
+
+    mapboxgl.accessToken = mapboxToken;
 
     // Determine initial center and zoom
     const center: [number, number] = userLocation 
@@ -140,7 +159,41 @@ const SupermarketMap = ({ supermarkets, userLocation, onMarkerClick }: Supermark
       markers.current = [];
       map.current?.remove();
     };
-  }, [supermarkets, userLocation, onMarkerClick]);
+  }, [supermarkets, userLocation, onMarkerClick, mapboxToken]);
+
+  if (showTokenInput) {
+    return (
+      <div className="w-full h-[400px] rounded-lg border bg-secondary/20 flex flex-col items-center justify-center gap-4 p-8">
+        <p className="text-center text-muted-foreground mb-2">
+          Enter your Mapbox public token to display the map
+        </p>
+        <p className="text-sm text-muted-foreground text-center mb-4">
+          Get your free token at{' '}
+          <a 
+            href="https://mapbox.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            mapbox.com
+          </a>
+        </p>
+        <div className="flex gap-2 w-full max-w-md">
+          <Input
+            type="text"
+            placeholder="pk.eyJ1..."
+            value={tokenInput}
+            onChange={(e) => setTokenInput(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleTokenSubmit()}
+            className="flex-1"
+          />
+          <Button onClick={handleTokenSubmit}>
+            Set Token
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div 
