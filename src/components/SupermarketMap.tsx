@@ -10,6 +10,8 @@ interface SupermarketData {
   address: string;
   city: string;
   country: string;
+  phone?: string;
+  hours?: string;
   latitude?: number;
   longitude?: number;
   distance?: number;
@@ -100,17 +102,23 @@ const SupermarketMap = ({ supermarkets, userLocation }: SupermarketMapProps) => 
 
       const marker = new mapboxgl.Marker(el)
         .setLngLat([supermarket.longitude, supermarket.latitude])
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 })
-            .setHTML(`
-              <div style="padding: 12px; min-width: 200px;">
-                <h3 style="margin: 0 0 8px 0; font-weight: bold; font-size: 14px;">${supermarket.name}</h3>
-                <p style="margin: 0; font-size: 12px; color: #666;">${supermarket.address}</p>
-                ${supermarket.distance ? `<p style="margin: 4px 0 0 0; font-size: 12px; color: #10b981; font-weight: 600;">${supermarket.distance.toFixed(1)} km away</p>` : ''}
-              </div>
-            `)
-        )
         .addTo(map.current);
+
+      // Add click event to show popup
+      el.addEventListener('click', () => {
+        const popup = new mapboxgl.Popup({ offset: 25, closeButton: true })
+          .setLngLat([supermarket.longitude!, supermarket.latitude!])
+          .setHTML(`
+            <div style="padding: 14px; min-width: 220px; font-family: system-ui, -apple-system, sans-serif;">
+              <h3 style="margin: 0 0 10px 0; font-weight: bold; font-size: 15px; color: #1a1a1a;">${supermarket.name}</h3>
+              <p style="margin: 0 0 6px 0; font-size: 13px; color: #666; line-height: 1.4;">📍 ${supermarket.address}</p>
+              ${supermarket.distance ? `<p style="margin: 0 0 6px 0; font-size: 13px; color: #10b981; font-weight: 600;">🚗 ${supermarket.distance.toFixed(1)} km away</p>` : ''}
+              ${supermarket.phone ? `<p style="margin: 0 0 6px 0; font-size: 13px; color: #666;">📞 ${supermarket.phone}</p>` : ''}
+              ${supermarket.hours ? `<p style="margin: 0; font-size: 13px; color: #666;">🕐 ${supermarket.hours}</p>` : ''}
+            </div>
+          `)
+          .addTo(map.current!);
+      });
 
       markers.current.push(marker);
     });
