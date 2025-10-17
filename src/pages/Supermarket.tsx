@@ -7,10 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock, Navigation, List, Map as MapIcon } from 'lucide-react';
+import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock, Navigation } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
-import SupermarketMap from '@/components/SupermarketMap';
 
 interface ShoppingItem {
   id: string;
@@ -52,8 +51,6 @@ const Supermarket = () => {
   const [newItem, setNewItem] = useState('');
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
-  const [mapboxToken, setMapboxToken] = useState('');
 
   // Check authentication
   useEffect(() => {
@@ -150,21 +147,13 @@ const Supermarket = () => {
   // Load from localStorage
   useEffect(() => {
     const savedList = localStorage.getItem('shoppingList');
-    const savedToken = localStorage.getItem('mapboxToken');
     if (savedList) setShoppingList(JSON.parse(savedList));
-    if (savedToken) setMapboxToken(savedToken);
   }, []);
 
   // Save to localStorage
   useEffect(() => {
     localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
   }, [shoppingList]);
-
-  useEffect(() => {
-    if (mapboxToken) {
-      localStorage.setItem('mapboxToken', mapboxToken);
-    }
-  }, [mapboxToken]);
 
   const addShoppingItem = () => {
     if (!newItem.trim()) return;
@@ -324,96 +313,56 @@ const Supermarket = () => {
             className="w-full"
           />
 
-          {/* Mapbox Token Input (if not set) */}
-          {!mapboxToken && viewMode === 'map' && (
-            <div className="p-4 border rounded-lg bg-secondary/20">
-              <p className="text-sm text-muted-foreground mb-2">
-                {i18n.language === 'el' 
-                  ? 'Εισάγετε το Mapbox token σας για να δείτε τον χάρτη:'
-                  : 'Enter your Mapbox token to view the map:'}
-              </p>
-              <Input
-                placeholder="pk.eyJ1..."
-                value={mapboxToken}
-                onChange={(e) => setMapboxToken(e.target.value)}
-              />
-              <p className="text-xs text-muted-foreground mt-2">
-                Get your free token at <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-accent underline">mapbox.com</a>
-              </p>
-            </div>
-          )}
-
-          {/* View Toggle */}
-          <Tabs value={viewMode} onValueChange={(v) => setViewMode(v as 'list' | 'map')} className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="list">
-                <List className="mr-2 h-4 w-4" />
-                {i18n.language === 'el' ? 'Λίστα' : 'List'}
-              </TabsTrigger>
-              <TabsTrigger value="map">
-                <MapIcon className="mr-2 h-4 w-4" />
-                {i18n.language === 'el' ? 'Χάρτης' : 'Map'}
-              </TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="list" className="space-y-3 mt-4">
-              {filteredSupermarkets.length > 0 ? (
-                filteredSupermarkets.slice(0, 10).map((market) => (
-                  <div
-                    key={market.id}
-                    className="p-4 rounded-lg border bg-secondary/20 space-y-2"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-foreground">{market.name}</h3>
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                          <MapPin className="h-3 w-3" />
-                          {market.address}, {market.city}
+          {/* Supermarket List */}
+          <div className="space-y-3">
+            {filteredSupermarkets.length > 0 ? (
+              filteredSupermarkets.slice(0, 10).map((market) => (
+                <div
+                  key={market.id}
+                  className="p-4 rounded-lg border bg-secondary/20 space-y-2"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground">{market.name}</h3>
+                      <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                        <MapPin className="h-3 w-3" />
+                        {market.address}, {market.city}
+                      </p>
+                      {market.distance && (
+                        <p className="text-sm text-accent mt-1">
+                          {market.distance.toFixed(1)} km {i18n.language === 'el' ? 'μακριά' : 'away'}
                         </p>
-                        {market.distance && (
-                          <p className="text-sm text-accent mt-1">
-                            {market.distance.toFixed(1)} km {i18n.language === 'el' ? 'μακριά' : 'away'}
-                          </p>
-                        )}
-                        {market.phone && (
-                          <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                            <Phone className="h-3 w-3" />
-                            {market.phone}
-                          </p>
-                        )}
-                        {market.hours && (
-                          <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                            <Clock className="h-3 w-3" />
-                            {market.hours}
-                          </p>
-                        )}
-                      </div>
+                      )}
+                      {market.phone && (
+                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                          <Phone className="h-3 w-3" />
+                          {market.phone}
+                        </p>
+                      )}
+                      {market.hours && (
+                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                          <Clock className="h-3 w-3" />
+                          {market.hours}
+                        </p>
+                      )}
                     </div>
-                    <Button
-                      onClick={() => openDirections(market)}
-                      size="sm"
-                      className="w-full"
-                    >
-                      <Navigation className="mr-2 h-4 w-4" />
-                      {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
-                    </Button>
                   </div>
-                ))
-              ) : (
-                <p className="text-center text-muted-foreground py-8">
-                  {i18n.language === 'el' ? 'Δεν βρέθηκαν σούπερ μάρκετ' : 'No supermarkets found'}
-                </p>
-              )}
-            </TabsContent>
-
-            <TabsContent value="map" className="mt-4">
-              <SupermarketMap
-                supermarkets={filteredSupermarkets}
-                userLocation={userLocation}
-                mapboxToken={mapboxToken}
-              />
-            </TabsContent>
-          </Tabs>
+                  <Button
+                    onClick={() => openDirections(market)}
+                    size="sm"
+                    className="w-full"
+                  >
+                    <Navigation className="mr-2 h-4 w-4" />
+                    {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
+                  </Button>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-muted-foreground py-8">
+                {i18n.language === 'el' ? 'Δεν βρέθηκαν σούπερ μάρκετ' : 'No supermarkets found'}
+              </p>
+            )}
+          </div>
         </CardContent>
       </Card>
 
