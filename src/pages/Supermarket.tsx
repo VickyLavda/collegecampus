@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock, Navigation } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
+import SupermarketMap from '@/components/SupermarketMap';
 
 interface ShoppingItem {
   id: string;
@@ -17,7 +18,7 @@ interface ShoppingItem {
   checked: boolean;
 }
 
-interface Supermarket {
+interface SupermarketData {
   id: string;
   name: string;
   address: string;
@@ -44,7 +45,7 @@ const Supermarket = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [supermarkets, setSupermarkets] = useState<Supermarket[]>([]);
+  const [supermarkets, setSupermarkets] = useState<SupermarketData[]>([]);
   const [loading, setLoading] = useState(true);
   
   const [shoppingList, setShoppingList] = useState<ShoppingItem[]>([]);
@@ -219,7 +220,7 @@ const Supermarket = () => {
     market.city.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const getDirectionsLink = (market: Supermarket) => {
+  const getDirectionsLink = (market: SupermarketData) => {
     const hasCoords = market.latitude && market.longitude;
     const dest = hasCoords
       ? `${market.latitude},${market.longitude}`
@@ -240,7 +241,7 @@ const Supermarket = () => {
       : `https://www.google.com/maps/search/?api=1&query=${dest}`;
   };
 
-  const openDirectionsSafe = async (market: Supermarket) => {
+  const openDirectionsSafe = async (market: SupermarketData) => {
     const url = getDirectionsLink(market);
 
     // 1) Try to navigate the top window (break out of iframe)
@@ -340,11 +341,35 @@ const Supermarket = () => {
         )}
       </div>
 
+      {/* Map View */}
+      {filteredSupermarkets.length > 0 && (
+        <Card className="shadow-soft">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <MapPin className="h-5 w-5 text-accent" />
+              {i18n.language === 'el' ? 'Χάρτης Σούπερ Μάρκετ' : 'Supermarket Map'}
+            </CardTitle>
+            <p className="text-sm text-muted-foreground mt-2">
+              {i18n.language === 'el' 
+                ? 'Κλικ στους δείκτες για λεπτομέρειες. Το μπλε είναι η τοποθεσία σας.'
+                : 'Click markers for details. Blue marker is your location.'}
+            </p>
+          </CardHeader>
+          <CardContent>
+            <SupermarketMap 
+              supermarkets={filteredSupermarkets}
+              userLocation={userLocation}
+              onMarkerClick={(market) => openDirectionsSafe(market)}
+            />
+          </CardContent>
+        </Card>
+      )}
+
       {/* Nearby Supermarkets */}
       <Card className="shadow-soft">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-foreground">
-            <MapPin className="h-5 w-5 text-accent" />
+            <Store className="h-5 w-5 text-accent" />
             {i18n.language === 'el' ? 'Κοντινά Σούπερ Μάρκετ' : 'Nearby Supermarkets'}
           </CardTitle>
           <p className="text-sm text-muted-foreground mt-2">
