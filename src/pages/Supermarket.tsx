@@ -219,12 +219,25 @@ const Supermarket = () => {
     market.city.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const getDirectionsUrl = (market: Supermarket) => {
-    if (market.latitude && market.longitude) {
-      return `https://www.google.com/maps/dir/?api=1&destination=${market.latitude},${market.longitude}`;
-    } else {
-      return `https://www.google.com/maps/search/${encodeURIComponent(market.name + ' ' + market.address)}`;
+  const getDirectionsLink = (market: Supermarket) => {
+    const hasCoords = market.latitude && market.longitude;
+    const dest = hasCoords
+      ? `${market.latitude},${market.longitude}`
+      : encodeURIComponent(`${market.name} ${market.address} ${market.city} ${market.country}`);
+
+    const ua = navigator.userAgent || '';
+    const isApple = /iPhone|iPad|iPod|Macintosh/.test(ua);
+
+    if (isApple) {
+      // Apple Maps on iOS/macOS
+      return hasCoords
+        ? `https://maps.apple.com/?daddr=${dest}`
+        : `https://maps.apple.com/?q=${dest}`;
     }
+    // Google Maps on others
+    return hasCoords
+      ? `https://www.google.com/maps/dir/?api=1&destination=${dest}`
+      : `https://www.google.com/maps/search/?api=1&query=${dest}`;
   };
 
   const budgetTips = i18n.language === 'el'
@@ -341,23 +354,22 @@ const Supermarket = () => {
                       )}
                     </div>
                   </div>
-                  <a
-                    href={getDirectionsUrl(market)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Button
+                    size="sm"
                     className="w-full"
+                    asChild
                   >
-                    <Button
-                      size="sm"
-                      className="w-full"
-                      asChild
+                    <a
+                      href={getDirectionsLink(market)}
+                      target="_top"
+                      rel="noopener noreferrer"
                     >
                       <span className="flex items-center justify-center">
                         <Navigation className="mr-2 h-4 w-4" />
                         {i18n.language === 'el' ? 'Οδηγίες' : 'Get Directions'}
                       </span>
-                    </Button>
-                  </a>
+                    </a>
+                  </Button>
                 </div>
               ))
             ) : (
