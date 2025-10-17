@@ -240,6 +240,49 @@ const Supermarket = () => {
       : `https://www.google.com/maps/search/?api=1&query=${dest}`;
   };
 
+  const openDirectionsSafe = async (market: Supermarket) => {
+    const url = getDirectionsLink(market);
+
+    // 1) Try to navigate the top window (break out of iframe)
+    try {
+      if (window.top) {
+        (window.top as Window).location.href = url;
+        return;
+      }
+    } catch (_) {}
+
+    // 2) Try opening a new tab
+    const w = window.open(url, '_blank', 'noopener,noreferrer');
+    if (w) return;
+
+    // 3) Create a temporary anchor and click it
+    try {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      return;
+    } catch (_) {}
+
+    // 4) Fallback: copy to clipboard and inform the user
+    try {
+      await navigator.clipboard.writeText(url);
+      toast({
+        title: i18n.language === 'el' ? 'Αντιγράφηκε ο σύνδεσμος' : 'Link copied',
+        description:
+          i18n.language === 'el'
+            ? 'Οι εξωτερικοί σύνδεσμοι μπλοκάρονται στην προεπισκόπηση. Επικολλήστε τον σύνδεσμο σε νέα καρτέλα.'
+            : 'External links are blocked in preview. Paste the link into a new tab to open directions.',
+      });
+    } catch (_) {
+      alert(url);
+    }
+  };
+  };
+
   const budgetTips = i18n.language === 'el'
     ? [
         'Αγοράστε προϊόντα ιδιωτικής ετικέτας - εξοικονομήστε έως 30%',
