@@ -230,62 +230,61 @@ const SOS = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <Tabs defaultValue="cyprus" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="cyprus">{t('sos.cyprus')}</TabsTrigger>
-              <TabsTrigger value="greece">{t('sos.greece')}</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="cyprus" className="space-y-3 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Cyprus Column */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground mb-3">{t('sos.cyprus')}</h3>
               {cyprusNumbers.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-smooth"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{item.icon}</span>
-                    <span className="font-medium text-foreground">{item.label}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-sm font-medium text-foreground">{item.label}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-accent">{item.number}</span>
+                    <span className="text-base font-bold text-accent">{item.number}</span>
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => handleCallNumber(item.number.split(' / ')[0])}
-                      className="h-8"
+                      className="h-8 w-8 p-0"
                     >
                       <Phone className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
               ))}
-            </TabsContent>
-            
-            <TabsContent value="greece" className="space-y-3 mt-4">
+            </div>
+
+            {/* Greece Column */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground mb-3">{t('sos.greece')}</h3>
               {greeceNumbers.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-smooth"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{item.icon}</span>
-                    <span className="font-medium text-foreground">{item.label}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-sm font-medium text-foreground">{item.label}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-accent">{item.number}</span>
+                    <span className="text-base font-bold text-accent">{item.number}</span>
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => handleCallNumber(item.number)}
-                      className="h-8"
+                      className="h-8 w-8 p-0"
                     >
                       <Phone className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
               ))}
-            </TabsContent>
-          </Tabs>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
