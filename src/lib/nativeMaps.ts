@@ -35,11 +35,11 @@ function getMapUri({ searchTerm, latitude, longitude, area }: OpenNativeMapOptio
     return `geo:0,0?q=${encodeURIComponent(query)}`;
   }
   
-  // Web fallback - OpenStreetMap
+  // Web fallback - Google Maps
   if (latitude !== undefined && longitude !== undefined) {
-    return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=16/${latitude}/${longitude}`;
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchTerm)}&query_place_id=${latitude},${longitude}`;
   }
-  return `https://www.openstreetmap.org/search?query=${encodeURIComponent(query)}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
 /**
