@@ -24,22 +24,39 @@ const SOS = () => {
     window.location.href = 'tel:112';
   };
 
-  const handleFindPharmacy = async () => {
+  const handleFindPharmacy = () => {
     // Show privacy message
     toast({
       title: t('sos.locationPermission'),
       duration: 3000,
     });
 
-    // Request location and open map
-    await openNativeMapWithLocation('pharmacy', () => {
-      setShowPharmacyFallback(true);
-    });
+    if (!navigator.geolocation) {
+      // No geolocation - open Google Maps with generic search
+      window.open('https://www.google.com/maps/search/?api=1&query=pharmacy', '_blank');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        window.open(`https://www.google.com/maps/search/?api=1&query=pharmacy&query_place_id=${latitude},${longitude}`, '_blank');
+      },
+      () => {
+        // Permission denied - show fallback or open generic search
+        setShowPharmacyFallback(true);
+      },
+      {
+        timeout: 10000,
+        maximumAge: 300000,
+      }
+    );
   };
 
   const handlePharmacySearch = () => {
     if (!pharmacyArea.trim()) return;
-    openNativeMap({ searchTerm: 'pharmacy', area: pharmacyArea });
+    const query = `pharmacy ${pharmacyArea}`;
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, '_blank');
     setShowPharmacyFallback(false);
     setPharmacyArea('');
   };
