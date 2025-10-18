@@ -88,7 +88,18 @@
     "ambulance": "Ambulance",
     "fire": "Fire Department",
     "locationPermission": "We'll use your location to find nearby pharmacies or supermarkets. Your location isn't stored.",
-    "searchByArea": "Search by area..."
+    "searchByArea": "Search by area...",
+    "emergencyNumbersTitle": "🚨 Emergency Numbers — Cyprus & Greece",
+    "cyprus": "🇨🇾 Cyprus",
+    "greece": "🇬🇷 Greece",
+    "generalEmergency": "General Emergency (EU)",
+    "coastGuard": "Coast Guard",
+    "forestFire": "Forest Fire Hotline",
+    "touristPolice": "Tourist Police (English-speaking)",
+    "callConfirmTitle": "Call Emergency Number?",
+    "callConfirmMessage": "Do you want to call this number?",
+    "cancel": "Cancel",
+    "call": "Call"
   },
   "supermarket": {
     "title": "My Supermarket",

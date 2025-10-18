@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Input } from '@/components/ui/input';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Phone, MapPin, Pill, AlertCircle, Shield, Ambulance, Flame } from 'lucide-react';
 import { openNativeMap, openNativeMapWithLocation } from '@/lib/nativeMaps';
 import { useToast } from '@/hooks/use-toast';
@@ -13,6 +15,8 @@ const SOS = () => {
   const { toast } = useToast();
   const [showPharmacyFallback, setShowPharmacyFallback] = useState(false);
   const [pharmacyArea, setPharmacyArea] = useState('');
+  const [callDialogOpen, setCallDialogOpen] = useState(false);
+  const [selectedNumber, setSelectedNumber] = useState('');
 
   const emergencyNumbers = [
     { icon: Shield, label: t('sos.police'), number: '100', color: 'text-blue-600' },
@@ -86,6 +90,35 @@ const SOS = () => {
       alert('Geolocation is not supported by your browser.');
     }
   };
+
+  const handleCallNumber = (number: string) => {
+    setSelectedNumber(number);
+    setCallDialogOpen(true);
+  };
+
+  const confirmCall = () => {
+    window.location.href = `tel:${selectedNumber}`;
+    setCallDialogOpen(false);
+  };
+
+  const cyprusNumbers = [
+    { icon: '📞', label: t('sos.generalEmergency'), number: '112' },
+    { icon: '👮', label: t('sos.police'), number: '112 / 199' },
+    { icon: '🚑', label: t('sos.ambulance'), number: '112 / 199' },
+    { icon: '🔥', label: t('sos.fire'), number: '112 / 199' },
+    { icon: '⚓', label: t('sos.coastGuard'), number: '1441' },
+    { icon: '🌲', label: t('sos.forestFire'), number: '1407' },
+  ];
+
+  const greeceNumbers = [
+    { icon: '📞', label: t('sos.generalEmergency'), number: '112' },
+    { icon: '👮', label: t('sos.police'), number: '100' },
+    { icon: '🚑', label: t('sos.ambulance'), number: '166' },
+    { icon: '🔥', label: t('sos.fire'), number: '199' },
+    { icon: '⚓', label: t('sos.coastGuard'), number: '108' },
+    { icon: '🧳', label: t('sos.touristPolice'), number: '1571' },
+    { icon: '🌲', label: t('sos.forestFire'), number: '191' },
+  ];
 
   return (
     <div className="space-y-6">
@@ -188,6 +221,74 @@ const SOS = () => {
         </CardContent>
       </Card>
 
+      {/* Emergency Numbers by Country */}
+      <Card className="shadow-soft">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-xl text-foreground">
+            <Phone className="h-5 w-5 text-destructive" />
+            {t('sos.emergencyNumbersTitle')}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="cyprus" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="cyprus">{t('sos.cyprus')}</TabsTrigger>
+              <TabsTrigger value="greece">{t('sos.greece')}</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="cyprus" className="space-y-3 mt-4">
+              {cyprusNumbers.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-smooth"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="font-medium text-foreground">{item.label}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-bold text-accent">{item.number}</span>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleCallNumber(item.number.split(' / ')[0])}
+                      className="h-8"
+                    >
+                      <Phone className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </TabsContent>
+            
+            <TabsContent value="greece" className="space-y-3 mt-4">
+              {greeceNumbers.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-smooth"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="font-medium text-foreground">{item.label}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg font-bold text-accent">{item.number}</span>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleCallNumber(item.number)}
+                      className="h-8"
+                    >
+                      <Phone className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+
       {/* Safety Tip */}
       <Card className="bg-accent/5 border-accent/20">
         <CardContent className="pt-6">
@@ -197,6 +298,26 @@ const SOS = () => {
           </p>
         </CardContent>
       </Card>
+
+      {/* Call Confirmation Dialog */}
+      <AlertDialog open={callDialogOpen} onOpenChange={setCallDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t('sos.callConfirmTitle')}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {t('sos.callConfirmMessage')}
+              <div className="mt-2 text-2xl font-bold text-accent">{selectedNumber}</div>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{t('sos.cancel')}</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmCall} className="bg-destructive hover:bg-destructive/90">
+              <Phone className="h-4 w-4 mr-2" />
+              {t('sos.call')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
