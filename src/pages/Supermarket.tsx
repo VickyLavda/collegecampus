@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
+import { openNativeMap, openNativeMapWithLocation } from '@/lib/nativeMaps';
 
 interface ShoppingItem {
   id: string;
@@ -55,6 +56,8 @@ const Supermarket = () => {
   const [savedStores, setSavedStores] = useState<SavedStore[]>([]);
   const [storeName, setStoreName] = useState('');
   const [storeAddress, setStoreAddress] = useState('');
+  const [showSupermarketFallback, setShowSupermarketFallback] = useState(false);
+  const [supermarketArea, setSupermarketArea] = useState('');
 
   // Check authentication
   useEffect(() => {
@@ -201,23 +204,24 @@ const Supermarket = () => {
     setSavedStores(savedStores.filter((store) => store.id !== id));
   };
 
-  const findNearbyStores = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          window.open(
-            `https://www.google.com/maps/search/supermarket/@${latitude},${longitude},15z`,
-            '_blank'
-          );
-        },
-        () => {
-          window.open('https://www.google.com/maps/search/supermarket', '_blank');
-        }
-      );
-    } else {
-      window.open('https://www.google.com/maps/search/supermarket', '_blank');
-    }
+  const findNearbyStores = async () => {
+    // Show privacy message
+    toast({
+      title: t('supermarket.locationPermission'),
+      duration: 3000,
+    });
+
+    // Request location and open map
+    await openNativeMapWithLocation('supermarket', () => {
+      setShowSupermarketFallback(true);
+    });
+  };
+
+  const handleSupermarketSearch = () => {
+    if (!supermarketArea.trim()) return;
+    openNativeMap({ searchTerm: 'supermarket', area: supermarketArea });
+    setShowSupermarketFallback(false);
+    setSupermarketArea('');
   };
 
   const budgetTips = i18n.language === 'el'
@@ -280,7 +284,7 @@ const Supermarket = () => {
 
       {/* Find Nearby Stores */}
       <Card className="shadow-soft">
-        <CardContent className="pt-6">
+        <CardContent className="pt-6 space-y-2">
           <Button
             onClick={findNearbyStores}
             className="w-full h-12 text-lg"
@@ -289,6 +293,21 @@ const Supermarket = () => {
             <MapPin className="mr-2 h-5 w-5" />
             {t('supermarket.findNearby')}
           </Button>
+          
+          {showSupermarketFallback && (
+            <div className="flex gap-2">
+              <Input
+                placeholder={t('supermarket.searchByArea')}
+                value={supermarketArea}
+                onChange={(e) => setSupermarketArea(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSupermarketSearch()}
+                className="flex-1"
+              />
+              <Button onClick={handleSupermarketSearch}>
+                <MapPin className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
         </CardContent>
       </Card>
 

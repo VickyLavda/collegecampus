@@ -86,7 +86,9 @@
     "importantNumbers": "Important Numbers",
     "police": "Police",
     "ambulance": "Ambulance",
-    "fire": "Fire Department"
+    "fire": "Fire Department",
+    "locationPermission": "We'll use your location to find nearby pharmacies or supermarkets. Your location isn't stored.",
+    "searchByArea": "Search by area..."
   },
   "supermarket": {
     "title": "My Supermarket",
@@ -104,7 +106,9 @@
     "storeAdded": "Store saved",
     "budgetTips": "Budget Shopping Tips",
     "essentials": "Student Essentials Checklist",
-    "priceComparison": "Price Comparison Guide"
+    "priceComparison": "Price Comparison Guide",
+    "locationPermission": "We'll use your location to find nearby pharmacies or supermarkets. Your location isn't stored.",
+    "searchByArea": "Search by area..."
   },
   "common": {
     "back": "Back",

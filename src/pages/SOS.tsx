@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Input } from '@/components/ui/input';
 import { Phone, MapPin, Pill, AlertCircle, Shield, Ambulance, Flame } from 'lucide-react';
+import { openNativeMap, openNativeMapWithLocation } from '@/lib/nativeMaps';
+import { useToast } from '@/hooks/use-toast';
 
 const SOS = () => {
   const { t } = useTranslation();
+  const { toast } = useToast();
+  const [showPharmacyFallback, setShowPharmacyFallback] = useState(false);
+  const [pharmacyArea, setPharmacyArea] = useState('');
 
   const emergencyNumbers = [
     { icon: Shield, label: t('sos.police'), number: '100', color: 'text-blue-600' },
@@ -17,8 +24,24 @@ const SOS = () => {
     window.location.href = 'tel:112';
   };
 
-  const handleFindPharmacy = () => {
-    window.open('https://www.google.com/maps/search/pharmacy+near+me', '_blank');
+  const handleFindPharmacy = async () => {
+    // Show privacy message
+    toast({
+      title: t('sos.locationPermission'),
+      duration: 3000,
+    });
+
+    // Request location and open map
+    await openNativeMapWithLocation('pharmacy', () => {
+      setShowPharmacyFallback(true);
+    });
+  };
+
+  const handlePharmacySearch = () => {
+    if (!pharmacyArea.trim()) return;
+    openNativeMap({ searchTerm: 'pharmacy', area: pharmacyArea });
+    setShowPharmacyFallback(false);
+    setPharmacyArea('');
   };
 
   const handleShareLocation = () => {
@@ -79,14 +102,31 @@ const SOS = () => {
           {t('sos.call112')}
         </Button>
 
-        <Button
-          onClick={handleFindPharmacy}
-          className="w-full h-16 text-lg bg-accent hover:bg-accent/90 text-primary shadow-gold"
-          variant="default"
-        >
-          <Pill className="h-6 w-6 mr-2" />
-          {t('sos.findPharmacy')}
-        </Button>
+        <div className="space-y-2">
+          <Button
+            onClick={handleFindPharmacy}
+            className="w-full h-16 text-lg bg-accent hover:bg-accent/90 text-primary shadow-gold"
+            variant="default"
+          >
+            <Pill className="h-6 w-6 mr-2" />
+            {t('sos.findPharmacy')}
+          </Button>
+          
+          {showPharmacyFallback && (
+            <div className="flex gap-2">
+              <Input
+                placeholder={t('sos.searchByArea')}
+                value={pharmacyArea}
+                onChange={(e) => setPharmacyArea(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handlePharmacySearch()}
+                className="flex-1"
+              />
+              <Button onClick={handlePharmacySearch}>
+                <MapPin className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+        </div>
 
         <Button
           onClick={handleShareLocation}
