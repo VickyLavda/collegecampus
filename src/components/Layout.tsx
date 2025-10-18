@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Home, UtensilsCrossed, Sparkles, HeartPulse, Lightbulb, Phone } from 'lucide-react';
+import { Home, UtensilsCrossed, Sparkles, HeartPulse, Lightbulb, Phone, ShoppingCart } from 'lucide-react';
 import { LanguageToggle } from './LanguageToggle';
 
 interface LayoutProps {
@@ -18,6 +18,7 @@ export const Layout = ({ children }: LayoutProps) => {
     { path: '/clean', icon: Sparkles, label: t('clean.title') },
     { path: '/health', icon: HeartPulse, label: t('health.title') },
     { path: '/hacks', icon: Lightbulb, label: t('hacks.title') },
+    { path: '/supermarket', icon: ShoppingCart, label: t('supermarket.title') },
     { path: '/sos', icon: Phone, label: t('sos.title') },
   ];
 
