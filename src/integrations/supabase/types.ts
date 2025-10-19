@@ -14,6 +14,158 @@ export type Database = {
   }
   public: {
     Tables: {
+      hub_bills: {
+        Row: {
+          created_at: string
+          created_by: string
+          due_date: string | null
+          hub_id: string
+          id: string
+          title: string
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          due_date?: string | null
+          hub_id: string
+          id?: string
+          title: string
+          total_amount: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          due_date?: string | null
+          hub_id?: string
+          id?: string
+          title?: string
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hub_bills_hub_id_fkey"
+            columns: ["hub_id"]
+            isOneToOne: false
+            referencedRelation: "roommate_hubs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hub_members: {
+        Row: {
+          hub_id: string
+          id: string
+          joined_at: string
+          user_id: string
+        }
+        Insert: {
+          hub_id: string
+          id?: string
+          joined_at?: string
+          user_id: string
+        }
+        Update: {
+          hub_id?: string
+          id?: string
+          joined_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hub_members_hub_id_fkey"
+            columns: ["hub_id"]
+            isOneToOne: false
+            referencedRelation: "roommate_hubs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hub_notes: {
+        Row: {
+          content: string
+          created_at: string
+          created_by: string
+          hub_id: string
+          id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          created_by: string
+          hub_id: string
+          id?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          created_by?: string
+          hub_id?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hub_notes_hub_id_fkey"
+            columns: ["hub_id"]
+            isOneToOne: false
+            referencedRelation: "roommate_hubs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hub_tasks: {
+        Row: {
+          assigned_to: string | null
+          completed: boolean
+          created_at: string
+          created_by: string
+          description: string | null
+          due_date: string | null
+          frequency: string
+          hub_id: string
+          id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          completed?: boolean
+          created_at?: string
+          created_by: string
+          description?: string | null
+          due_date?: string | null
+          frequency?: string
+          hub_id: string
+          id?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          completed?: boolean
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          due_date?: string | null
+          frequency?: string
+          hub_id?: string
+          id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hub_tasks_hub_id_fkey"
+            columns: ["hub_id"]
+            isOneToOne: false
+            referencedRelation: "roommate_hubs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           city: string
@@ -47,6 +199,33 @@ export type Database = {
         }
         Relationships: []
       }
+      roommate_hubs: {
+        Row: {
+          created_at: string
+          created_by: string
+          id: string
+          invite_code: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          id?: string
+          invite_code: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          id?: string
+          invite_code?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       supermarkets: {
         Row: {
           address: string
@@ -55,6 +234,8 @@ export type Database = {
           created_at: string
           hours: string | null
           id: string
+          latitude: number | null
+          longitude: number | null
           name: string
           phone: string | null
           updated_at: string
@@ -67,6 +248,8 @@ export type Database = {
           created_at?: string
           hours?: string | null
           id?: string
+          latitude?: number | null
+          longitude?: number | null
           name: string
           phone?: string | null
           updated_at?: string
@@ -79,6 +262,8 @@ export type Database = {
           created_at?: string
           hours?: string | null
           id?: string
+          latitude?: number | null
+          longitude?: number | null
           name?: string
           phone?: string | null
           updated_at?: string
@@ -91,7 +276,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_invite_code: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
+      is_hub_member: {
+        Args: { _hub_id: string; _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
