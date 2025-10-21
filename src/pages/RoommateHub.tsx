@@ -12,10 +12,13 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Users, Plus, Copy, ClipboardCheck, DollarSign, StickyNote, Calendar } from 'lucide-react';
 import { Label } from '@/components/ui/label';
+import { useNavigate } from 'react-router-dom';
 
 export default function RoommateHub() {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const [authUser, setAuthUser] = useState<any>(null);
   const [currentHub, setCurrentHub] = useState<any>(null);
   const [members, setMembers] = useState<any[]>([]);
   const [tasks, setTasks] = useState<any[]>([]);
@@ -37,6 +40,7 @@ export default function RoommateHub() {
   const loadHub = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
+      setAuthUser(user || null);
       if (!user) return;
 
       // Get user's hub membership
@@ -325,6 +329,30 @@ export default function RoommateHub() {
 
   if (loading) {
     return <div className="text-center py-8">{t('common.loading')}</div>;
+  }
+
+  // Require authentication first to satisfy security policies
+  if (!authUser) {
+    return (
+      <div className="space-y-6 animate-fade-in">
+        <div className="text-center space-y-2">
+          <Users className="h-16 w-16 mx-auto text-primary" />
+          <h1 className="text-3xl font-heading font-bold text-foreground">{t('roommate.title')}</h1>
+          <p className="text-muted-foreground">Sign in to create or join a hub.</p>
+        </div>
+        <div className="max-w-md mx-auto">
+          <Card>
+            <CardHeader>
+              <CardTitle>Sign in required</CardTitle>
+              <CardDescription>You need an account to use RoomMate Hub.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button className="w-full" onClick={() => navigate('/auth')}>Go to Sign In</Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
   }
 
   if (!currentHub) {
