@@ -216,30 +216,26 @@ export default function RoommateHub() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user || !inviteCode.trim()) return;
 
-      // Find hub by invite code
-      const { data: hub } = await supabase
-        .from('roommate_hubs')
-        .select('id')
-        .eq('invite_code', inviteCode.toUpperCase())
-        .single();
+      // Use security definer function to join by code
+      const { data: hubId, error } = await supabase.rpc('join_hub_by_code', { 
+        _invite_code: inviteCode.trim() 
+      });
 
-      if (!hub) {
-        toast({ title: t('roommate.invalidCode'), variant: 'destructive' });
+      if (error) {
+        if (error.message.includes('invalid_invite_code')) {
+          toast({ title: t('roommate.invalidCode'), variant: 'destructive' });
+        } else {
+          toast({ title: t('common.error'), description: error.message, variant: 'destructive' });
+        }
         return;
       }
-
-      // Join hub
-      await supabase.from('hub_members').insert({
-        hub_id: hub.id,
-        user_id: user.id
-      });
 
       toast({ title: t('roommate.joinedHub') });
       loadHub();
       setInviteCode('');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error joining hub:', error);
-      toast({ title: t('common.error'), variant: 'destructive' });
+      toast({ title: t('common.error'), description: error?.message, variant: 'destructive' });
     }
   };
 
