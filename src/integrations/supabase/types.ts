@@ -284,6 +284,10 @@ export type Database = {
         Args: { _hub_id: string; _user_id: string }
         Returns: boolean
       }
+      join_hub_by_code: {
+        Args: { _invite_code: string }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
