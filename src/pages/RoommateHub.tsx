@@ -59,17 +59,53 @@ export default function RoommateHub() {
         // Load members
         const { data: hubMembers } = await supabase
           .from('hub_members')
-          .select('*, profiles!hub_members_user_id_fkey(name, email)')
+          .select('*')
           .eq('hub_id', membership.hub_id);
-        setMembers(hubMembers || []);
+        
+        // Load profiles separately
+        if (hubMembers) {
+          const memberIds = hubMembers.map(m => m.user_id);
+          const { data: profilesData } = await supabase
+            .from('profiles')
+            .select('user_id, name, email')
+            .in('user_id', memberIds);
+          
+          const membersWithProfiles = hubMembers.map(member => ({
+            ...member,
+            profiles: profilesData?.find(p => p.user_id === member.user_id)
+          }));
+          setMembers(membersWithProfiles);
+        } else {
+          setMembers([]);
+        }
 
         // Load tasks
         const { data: hubTasks } = await supabase
           .from('hub_tasks')
-          .select('*, profiles!hub_tasks_assigned_to_fkey(name)')
+          .select('*')
           .eq('hub_id', membership.hub_id)
           .order('created_at', { ascending: false });
-        setTasks(hubTasks || []);
+        
+        // Load assignee profiles
+        if (hubTasks) {
+          const assignedIds = hubTasks.filter(t => t.assigned_to).map(t => t.assigned_to);
+          if (assignedIds.length > 0) {
+            const { data: profilesData } = await supabase
+              .from('profiles')
+              .select('user_id, name')
+              .in('user_id', assignedIds);
+            
+            const tasksWithProfiles = hubTasks.map(task => ({
+              ...task,
+              profiles: task.assigned_to ? profilesData?.find(p => p.user_id === task.assigned_to) : null
+            }));
+            setTasks(tasksWithProfiles);
+          } else {
+            setTasks(hubTasks);
+          }
+        } else {
+          setTasks([]);
+        }
 
         // Load bills
         const { data: hubBills } = await supabase
@@ -82,10 +118,26 @@ export default function RoommateHub() {
         // Load notes
         const { data: hubNotes } = await supabase
           .from('hub_notes')
-          .select('*, profiles!hub_notes_created_by_fkey(name)')
+          .select('*')
           .eq('hub_id', membership.hub_id)
           .order('created_at', { ascending: false });
-        setNotes(hubNotes || []);
+        
+        // Load creator profiles
+        if (hubNotes) {
+          const creatorIds = hubNotes.map(n => n.created_by);
+          const { data: profilesData } = await supabase
+            .from('profiles')
+            .select('user_id, name')
+            .in('user_id', creatorIds);
+          
+          const notesWithProfiles = hubNotes.map(note => ({
+            ...note,
+            profiles: profilesData?.find(p => p.user_id === note.created_by)
+          }));
+          setNotes(notesWithProfiles);
+        } else {
+          setNotes([]);
+        }
       }
     } catch (error) {
       console.error('Error loading hub:', error);
@@ -97,10 +149,22 @@ export default function RoommateHub() {
   const createHub = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user || !hubName.trim()) return;
+      if (!user) {
+        toast({ title: t('common.error'), description: 'Please log in first', variant: 'destructive' });
+        return;
+      }
+      
+      if (!hubName.trim()) {
+        toast({ title: t('common.error'), description: 'Please enter a hub name', variant: 'destructive' });
+        return;
+      }
 
       // Generate invite code
-      const { data: codeData } = await supabase.rpc('generate_invite_code');
+      const { data: codeData, error: codeError } = await supabase.rpc('generate_invite_code');
+      if (codeError) {
+        console.error('Error generating invite code:', codeError);
+        throw new Error('Failed to generate invite code');
+      }
       const code = codeData as string;
 
       // Create hub
@@ -114,20 +178,32 @@ export default function RoommateHub() {
         .select()
         .single();
 
-      if (hubError) throw hubError;
+      if (hubError) {
+        console.error('Error creating hub:', hubError);
+        throw hubError;
+      }
 
       // Add creator as member
-      await supabase.from('hub_members').insert({
+      const { error: memberError } = await supabase.from('hub_members').insert({
         hub_id: hub.id,
         user_id: user.id
       });
 
+      if (memberError) {
+        console.error('Error adding member:', memberError);
+        throw memberError;
+      }
+
       toast({ title: t('roommate.hubCreated'), description: t('roommate.inviteOthers') });
       loadHub();
       setHubName('');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error creating hub:', error);
-      toast({ title: t('common.error'), variant: 'destructive' });
+      toast({ 
+        title: t('common.error'), 
+        description: error?.message || 'Failed to create hub',
+        variant: 'destructive' 
+      });
     }
   };
 
