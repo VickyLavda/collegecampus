@@ -27,7 +27,7 @@
       "recipes": "Easy Recipes",
       "clean": "Clean & Organize",
       "health": "When You're Sick",
-      "hacks": "Life Hacks",
+      "community": "Community",
       "supermarket": "My Supermarket",
       "sos": "SOS & Help"
     }
@@ -65,16 +65,45 @@
     "whenToCall": "When to Call a Doctor",
     "homeRemedies": "Home Remedies"
   },
-  "hacks": {
-    "title": "Life Hacks",
-    "subtitle": "Smart tips for student living",
-    "categories": {
-      "budget": "Budget & Money",
-      "rent": "Rent & Bills",
-      "roommates": "Living with Roommates",
-      "study": "Study Tips",
-      "social": "Social Life"
-    }
+  "community": {
+    "title": "Community",
+    "subtitle": "Connect with fellow students",
+    "tabs": {
+      "posts": "Community Board",
+      "events": "Events"
+    },
+    "post": {
+      "create": "Share something...",
+      "content": "What's on your mind?",
+      "location": "Location (optional)",
+      "submit": "Post",
+      "likes": "likes",
+      "comments": "comments",
+      "report": "Report",
+      "delete": "Delete"
+    },
+    "event": {
+      "create": "Create Event",
+      "title": "Event Title",
+      "description": "Description",
+      "location": "Location",
+      "date": "Date & Time",
+      "submit": "Create Event",
+      "interested": "Interested",
+      "joined": "Joined",
+      "attendees": "attendees"
+    },
+    "comment": {
+      "add": "Add a comment...",
+      "submit": "Comment"
+    },
+    "filter": {
+      "all": "All",
+      "myCity": "My City",
+      "myUniversity": "My University"
+    },
+    "loginRequired": "Please sign in to post and interact",
+    "signIn": "Sign In"
   },
   "sos": {
     "title": "SOS & Help",

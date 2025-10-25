@@ -17,7 +17,7 @@ export const Layout = ({ children }: LayoutProps) => {
     { path: '/recipes', icon: UtensilsCrossed, label: t('recipes.title') },
     { path: '/clean', icon: Sparkles, label: t('clean.title') },
     { path: '/health', icon: HeartPulse, label: t('health.title') },
-    { path: '/hacks', icon: Lightbulb, label: t('hacks.title') },
+    { path: '/community', icon: Users, label: t('community.title') },
     { path: '/roommate', icon: Users, label: t('roommate.title') },
     { path: '/supermarket', icon: ShoppingCart, label: t('supermarket.title') },
     { path: '/sos', icon: Phone, label: t('sos.title') },

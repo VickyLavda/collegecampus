@@ -11,7 +11,7 @@ import Recipes from './pages/Recipes';
 import RecipeDetail from './pages/RecipeDetail';
 import Clean from './pages/Clean';
 import Health from './pages/Health';
-import LifeHacks from './pages/LifeHacks';
+import Community from './pages/Community';
 import Supermarket from './pages/Supermarket';
 import SOS from './pages/SOS';
 import RoommateHub from './pages/RoommateHub';
@@ -49,7 +49,7 @@ const App = () => {
             <Route path="/recipes/:id" element={<Layout><RecipeDetail /></Layout>} />
             <Route path="/clean" element={<Layout><Clean /></Layout>} />
             <Route path="/health" element={<Layout><Health /></Layout>} />
-            <Route path="/hacks" element={<Layout><LifeHacks /></Layout>} />
+            <Route path="/community" element={<Layout><Community /></Layout>} />
             <Route path="/supermarket" element={<Layout><Supermarket /></Layout>} />
             <Route path="/roommate" element={<Layout><RoommateHub /></Layout>} />
             <Route path="/sos" element={<Layout><SOS /></Layout>} />

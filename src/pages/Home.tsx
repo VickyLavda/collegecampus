@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { UtensilsCrossed, Sparkles, HeartPulse, Lightbulb, Phone, GraduationCap, ShoppingCart } from 'lucide-react';
+import { UtensilsCrossed, Sparkles, HeartPulse, Users2, Phone, GraduationCap, ShoppingCart } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
 const Home = () => {
@@ -48,9 +48,9 @@ const Home = () => {
       title: t('home.sections.health'),
     },
     {
-      path: '/hacks',
-      icon: Lightbulb,
-      title: t('home.sections.hacks'),
+      path: '/community',
+      icon: Users2,
+      title: t('home.sections.community'),
     },
     {
       path: '/supermarket',
