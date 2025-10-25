@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Heart, MessageCircle, Flag, Trash2, Calendar, MapPin, Users2 } from 'lucide-react';
+import { Heart, MessageCircle, Flag, Trash2, Calendar, MapPin, MessageSquare } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 
@@ -300,7 +300,7 @@ const Community = () => {
   if (!user) {
     return (
       <div className="text-center py-12">
-        <Users2 className="h-16 w-16 text-accent mx-auto mb-4" />
+        <MessageSquare className="h-16 w-16 text-accent mx-auto mb-4" />
         <h2 className="text-2xl font-bold mb-2">{t('community.title')}</h2>
         <p className="text-muted-foreground mb-4">{t('community.loginRequired')}</p>
         <Button onClick={() => navigate('/auth')}>{t('community.signIn')}</Button>
@@ -313,7 +313,7 @@ const Community = () => {
       {/* Header */}
       <div className="text-center">
         <h1 className="mb-2 flex items-center justify-center gap-2 text-foreground">
-          <Users2 className="h-8 w-8 text-accent" />
+          <MessageSquare className="h-8 w-8 text-accent" />
           {t('community.title')}
         </h1>
         <p className="text-muted-foreground">{t('community.subtitle')}</p>
