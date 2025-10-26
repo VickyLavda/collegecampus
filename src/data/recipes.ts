@@ -5,6 +5,7 @@ export interface Recipe {
   time: number;
   difficulty: 'easy' | 'medium' | 'hard';
   image: string;
+  imageType?: 'emoji' | 'url';
   ingredients: string[];
   ingredientsEl: string[];
   instructions: string[];
@@ -362,7 +363,8 @@ export const recipes: Recipe[] = [
     nameEl: 'Κλασική Ομελέτα',
     time: 10,
     difficulty: 'easy',
-    image: '🍳',
+    image: '/src/assets/omelet-pan.jpg',
+    imageType: 'url',
     ingredients: [
       '3 eggs',
       '1 tbsp milk or water',

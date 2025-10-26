@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, ChefHat } from 'lucide-react';
 import { recipes } from '@/data/recipes';
+import omeletImage from '@/assets/omelet-pan.jpg';
 
 const Recipes = () => {
   const { t, i18n } = useTranslation();
@@ -53,7 +54,13 @@ const Recipes = () => {
                       </Badge>
                     </div>
                   </div>
-                  <div className="text-5xl">{recipe.image}</div>
+                  <div className="text-5xl">
+                    {recipe.imageType === 'url' && recipe.id === '9' ? (
+                      <img src={omeletImage} alt={recipe.name} className="w-20 h-20 object-cover rounded-lg" />
+                    ) : (
+                      recipe.image
+                    )}
+                  </div>
                 </div>
               </CardHeader>
             </Card>

@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Clock, ChefHat, Play, Pause, RotateCcw, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { recipes } from '@/data/recipes';
+import omeletImage from '@/assets/omelet-pan.jpg';
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -205,7 +206,13 @@ const RecipeDetail = () => {
                 </Badge>
               </div>
             </div>
-            <div className="text-6xl">{recipe.image}</div>
+            <div className="text-6xl">
+              {recipe.imageType === 'url' && recipe.id === '9' ? (
+                <img src={omeletImage} alt={recipe.name} className="w-24 h-24 object-cover rounded-lg" />
+              ) : (
+                recipe.image
+              )}
+            </div>
           </div>
         </CardHeader>
       </Card>
