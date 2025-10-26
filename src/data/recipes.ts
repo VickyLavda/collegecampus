@@ -362,7 +362,7 @@ export const recipes: Recipe[] = [
     nameEl: 'Κλασική Ομελέτα',
     time: 10,
     difficulty: 'easy',
-    image: '🍳',
+    image: '🍽️',
     ingredients: [
       '3 eggs',
       '1 tbsp milk or water',
