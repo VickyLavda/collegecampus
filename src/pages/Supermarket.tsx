@@ -6,10 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, Phone, Clock } from 'lucide-react';
+import { ShoppingCart, TrendingDown, CheckSquare, Plus, Trash2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
-import { openNativeMap, openNativeMapWithLocation } from '@/lib/nativeMaps';
 import alphamegaLogo from '@/assets/alphamega-logo.png';
 import metroLogo from '@/assets/metro-logo.png';
 
@@ -17,23 +16,6 @@ interface ShoppingItem {
   id: string;
   text: string;
   checked: boolean;
-}
-
-interface SavedStore {
-  id: string;
-  name: string;
-  address: string;
-}
-
-interface Supermarket {
-  id: string;
-  name: string;
-  address: string;
-  city: string;
-  country: string;
-  phone?: string;
-  hours?: string;
-  website?: string;
 }
 
 interface Profile {
@@ -50,16 +32,10 @@ const Supermarket = () => {
   const [session, setSession] = useState<Session | null>(null);
   const [authChecking, setAuthChecking] = useState(true);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [supermarkets, setSupermarkets] = useState<Supermarket[]>([]);
   const [loading, setLoading] = useState(true);
   
   const [shoppingList, setShoppingList] = useState<ShoppingItem[]>([]);
   const [newItem, setNewItem] = useState('');
-  const [savedStores, setSavedStores] = useState<SavedStore[]>([]);
-  const [storeName, setStoreName] = useState('');
-  const [storeAddress, setStoreAddress] = useState('');
-  const [showSupermarketFallback, setShowSupermarketFallback] = useState(false);
-  const [supermarketArea, setSupermarketArea] = useState('');
 
   // Check authentication
   useEffect(() => {
@@ -87,14 +63,13 @@ const Supermarket = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
-  // Fetch user profile and supermarkets
+  // Fetch user profile
   useEffect(() => {
     const fetchData = async () => {
       if (!user) return;
       
       setLoading(true);
       
-      // Fetch user profile
       const { data: profileData, error: profileError } = await supabase
         .from('profiles')
         .select('country, city')
@@ -109,24 +84,6 @@ const Supermarket = () => {
         });
       } else {
         setProfile(profileData);
-        
-        // Fetch supermarkets based on user's country and city
-        const { data: supermarketsData, error: supermarketsError } = await supabase
-          .from('supermarkets')
-          .select('*')
-          .eq('country', profileData.country)
-          .eq('city', profileData.city)
-          .order('name');
-
-        if (supermarketsError) {
-          toast({
-            title: 'Error loading supermarkets',
-            description: 'Unable to load nearby supermarkets.',
-            variant: 'destructive',
-          });
-        } else {
-          setSupermarkets(supermarketsData || []);
-        }
       }
       
       setLoading(false);
@@ -138,19 +95,13 @@ const Supermarket = () => {
   // Load from localStorage
   useEffect(() => {
     const savedList = localStorage.getItem('shoppingList');
-    const savedStoresList = localStorage.getItem('savedStores');
     if (savedList) setShoppingList(JSON.parse(savedList));
-    if (savedStoresList) setSavedStores(JSON.parse(savedStoresList));
   }, []);
 
   // Save to localStorage
   useEffect(() => {
     localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
   }, [shoppingList]);
-
-  useEffect(() => {
-    localStorage.setItem('savedStores', JSON.stringify(savedStores));
-  }, [savedStores]);
 
   const addShoppingItem = () => {
     if (!newItem.trim()) return;
@@ -184,46 +135,6 @@ const Supermarket = () => {
     toast({
       title: t('supermarket.clearedCompleted'),
     });
-  };
-
-  const addStore = () => {
-    if (!storeName.trim() || !storeAddress.trim()) return;
-    const store: SavedStore = {
-      id: Date.now().toString(),
-      name: storeName.trim(),
-      address: storeAddress.trim(),
-    };
-    setSavedStores([...savedStores, store]);
-    setStoreName('');
-    setStoreAddress('');
-    toast({
-      title: t('supermarket.storeAdded'),
-      description: storeName,
-    });
-  };
-
-  const deleteStore = (id: string) => {
-    setSavedStores(savedStores.filter((store) => store.id !== id));
-  };
-
-  const findNearbyStores = async () => {
-    // Show privacy message
-    toast({
-      title: t('supermarket.locationPermission'),
-      duration: 3000,
-    });
-
-    // Request location and open map
-    await openNativeMapWithLocation('supermarket', () => {
-      setShowSupermarketFallback(true);
-    });
-  };
-
-  const handleSupermarketSearch = () => {
-    if (!supermarketArea.trim()) return;
-    openNativeMap({ searchTerm: 'supermarket', area: supermarketArea });
-    setShowSupermarketFallback(false);
-    setSupermarketArea('');
   };
 
   const budgetTips = i18n.language === 'el'
@@ -283,35 +194,6 @@ const Supermarket = () => {
           </p>
         )}
       </div>
-
-      {/* Find Nearby Stores */}
-      <Card className="shadow-soft">
-        <CardContent className="pt-6 space-y-2">
-          <Button
-            onClick={findNearbyStores}
-            className="w-full h-12 text-lg"
-            size="lg"
-          >
-            <MapPin className="mr-2 h-5 w-5" />
-            {t('supermarket.findNearby')}
-          </Button>
-          
-          {showSupermarketFallback && (
-            <div className="flex gap-2">
-              <Input
-                placeholder={t('supermarket.searchByArea')}
-                value={supermarketArea}
-                onChange={(e) => setSupermarketArea(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSupermarketSearch()}
-                className="flex-1"
-              />
-              <Button onClick={handleSupermarketSearch}>
-                <MapPin className="h-4 w-4" />
-              </Button>
-            </div>
-          )}
-        </CardContent>
-      </Card>
 
       {/* Alphamega Online Shopping */}
       <Card className="shadow-soft border-accent/20">
@@ -381,50 +263,6 @@ const Supermarket = () => {
         </CardContent>
       </Card>
 
-      {/* Local Supermarkets */}
-      {supermarkets.length > 0 && (
-        <Card className="shadow-soft">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-foreground">
-              <Store className="h-5 w-5 text-accent" />
-              {i18n.language === 'el' ? 'Τοπικά Σούπερ Μάρκετ' : 'Local Supermarkets'}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {supermarkets.map((market) => (
-                <div
-                  key={market.id}
-                  className="p-4 rounded-lg border bg-secondary/20 space-y-2"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-foreground">{market.name}</h3>
-                      <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                        <MapPin className="h-3 w-3" />
-                        {market.address}, {market.city}
-                      </p>
-                      {market.phone && (
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                          <Phone className="h-3 w-3" />
-                          {market.phone}
-                        </p>
-                      )}
-                      {market.hours && (
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                          <Clock className="h-3 w-3" />
-                          {market.hours}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
       {/* Shopping List */}
       <Card className="shadow-soft">
         <CardHeader>
@@ -486,59 +324,6 @@ const Supermarket = () => {
                 </Button>
               )}
             </>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Saved Stores */}
-      <Card className="shadow-soft">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <Store className="h-5 w-5 text-accent" />
-            {t('supermarket.savedStores')}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Input
-              placeholder={t('supermarket.storeName')}
-              value={storeName}
-              onChange={(e) => setStoreName(e.target.value)}
-            />
-            <Input
-              placeholder={t('supermarket.storeAddress')}
-              value={storeAddress}
-              onChange={(e) => setStoreAddress(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && addStore()}
-            />
-            <Button onClick={addStore} className="w-full">
-              <Plus className="mr-2 h-4 w-4" />
-              {t('supermarket.addStore')}
-            </Button>
-          </div>
-
-          {savedStores.length > 0 && (
-            <div className="space-y-2 mt-4">
-              {savedStores.map((store) => (
-                <div
-                  key={store.id}
-                  className="flex items-start gap-2 p-3 rounded-lg border bg-secondary/20"
-                >
-                  <Store className="h-4 w-4 text-accent mt-1" />
-                  <div className="flex-1">
-                    <p className="font-medium">{store.name}</p>
-                    <p className="text-sm text-muted-foreground">{store.address}</p>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => deleteStore(store.id)}
-                  >
-                    <Trash2 className="h-4 w-4 text-destructive" />
-                  </Button>
-                </div>
-              ))}
-            </div>
           )}
         </CardContent>
       </Card>
