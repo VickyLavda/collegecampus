@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ShoppingCart, TrendingDown, CheckSquare, Plus, Trash2 } from 'lucide-react';
+import { ShoppingCart, CheckSquare, Plus, Trash2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
 import alphamegaLogo from '@/assets/alphamega-logo.png';
@@ -137,37 +137,6 @@ const Supermarket = () => {
     });
   };
 
-  const budgetTips = i18n.language === 'el'
-    ? [
-        'Αγοράστε προϊόντα ιδιωτικής ετικέτας - εξοικονομήστε έως 30%',
-        'Ψωνίστε με βάση τις εβδομαδιαίες προσφορές',
-        'Αγοράστε εποχιακά φρούτα και λαχανικά',
-        'Αποφύγετε τα ψώνια όταν πεινάτε',
-      ]
-    : [
-        'Buy store brands - save up to 30%',
-        'Shop based on weekly sales',
-        'Buy seasonal fruits and vegetables',
-        'Never shop when hungry',
-      ];
-
-  const essentials = i18n.language === 'el'
-    ? [
-        'Ρύζι, ζυμαρικά, φακές (βασικά)',
-        'Αυγά, γάλα, τυρί',
-        'Ψωμί ή τοστ',
-        'Κατεψυγμένα λαχανικά',
-        'Ελαιόλαδο, αλάτι, μπαχαρικά',
-        'Καφές/τσάι',
-      ]
-    : [
-        'Rice, pasta, lentils (staples)',
-        'Eggs, milk, cheese',
-        'Bread or toast',
-        'Frozen vegetables',
-        'Olive oil, salt, spices',
-        'Coffee/tea',
-      ];
 
   if (authChecking || loading) {
     return (
@@ -328,45 +297,6 @@ const Supermarket = () => {
         </CardContent>
       </Card>
 
-      {/* Budget Tips */}
-      <Card className="shadow-soft">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <TrendingDown className="h-5 w-5 text-accent" />
-            {t('supermarket.budgetTips')}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2">
-            {budgetTips.map((tip, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <span className="text-accent mt-1">💰</span>
-                <span className="text-foreground">{tip}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-
-      {/* Student Essentials */}
-      <Card className="shadow-soft">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <CheckSquare className="h-5 w-5 text-accent" />
-            {t('supermarket.essentials')}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2">
-            {essentials.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <span className="text-accent mt-1">✓</span>
-                <span className="text-foreground">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
     </div>
   );
 };
