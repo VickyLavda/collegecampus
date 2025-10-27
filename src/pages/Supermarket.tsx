@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ShoppingCart, CheckSquare, Plus, Trash2 } from 'lucide-react';
+import { ShoppingCart, CheckSquare, Plus, Trash2, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
 import alphamegaLogo from '@/assets/alphamega-logo.png';
@@ -188,6 +188,15 @@ const Supermarket = () => {
                     ? 'Κάντε τα ψώνια σας online με παράδοση στο σπίτι' 
                     : 'Order your groceries online with home delivery'}
                 </p>
+                <div className="flex items-center justify-center gap-2 p-3 bg-accent/10 rounded-lg border border-accent/20">
+                  <Tag className="h-4 w-4 text-accent" />
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground">
+                      {i18n.language === 'el' ? 'Κωδικός Έκπτωσης' : 'Discount Code'}
+                    </p>
+                    <p className="font-mono font-bold text-accent">COLLEGE10</p>
+                  </div>
+                </div>
               </div>
               <Button className="w-full">
                 <ShoppingCart className="mr-2 h-4 w-4" />
@@ -222,6 +231,15 @@ const Supermarket = () => {
                     ? 'Κάντε τα ψώνια σας online με παράδοση στο σπίτι' 
                     : 'Order your groceries online with home delivery'}
                 </p>
+                <div className="flex items-center justify-center gap-2 p-3 bg-accent/10 rounded-lg border border-accent/20">
+                  <Tag className="h-4 w-4 text-accent" />
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground">
+                      {i18n.language === 'el' ? 'Κωδικός Έκπτωσης' : 'Discount Code'}
+                    </p>
+                    <p className="font-mono font-bold text-accent">COLLEGE10</p>
+                  </div>
+                </div>
               </div>
               <Button className="w-full">
                 <ShoppingCart className="mr-2 h-4 w-4" />
