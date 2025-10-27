@@ -10,6 +10,7 @@ import { ShoppingCart, Store, MapPin, TrendingDown, CheckSquare, Plus, Trash2, P
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
 import { openNativeMap, openNativeMapWithLocation } from '@/lib/nativeMaps';
+import alphamegaLogo from '@/assets/alphamega-logo.png';
 
 interface ShoppingItem {
   id: string;
@@ -308,6 +309,40 @@ const Supermarket = () => {
               </Button>
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      {/* Alphamega Online Shopping */}
+      <Card className="shadow-soft border-accent/20">
+        <CardContent className="pt-6">
+          <a 
+            href="https://www.alphamega.com.cy/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-background to-secondary/30 hover:shadow-lg transition-all">
+              <img 
+                src={alphamegaLogo} 
+                alt="Alphamega Hypermarket" 
+                className="h-16 object-contain"
+              />
+              <div className="text-center space-y-2">
+                <h3 className="font-semibold text-lg text-foreground">
+                  {i18n.language === 'el' ? 'Ψωνίστε Online στην Alphamega' : 'Shop Online at Alphamega'}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {i18n.language === 'el' 
+                    ? 'Κάντε τα ψώνια σας online με παράδοση στο σπίτι' 
+                    : 'Order your groceries online with home delivery'}
+                </p>
+              </div>
+              <Button className="w-full">
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                {i18n.language === 'el' ? 'Επισκεφθείτε το Ηλεκτρονικό Κατάστημα' : 'Visit Online Store'}
+              </Button>
+            </div>
+          </a>
         </CardContent>
       </Card>
 
