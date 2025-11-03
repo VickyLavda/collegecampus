@@ -1,0 +1,878 @@
+
+
+<!doctype html>
+<html lang="el">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+	<!-- Load google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+	<!-- END - Load google fonts -->
+	
+	<script type="c812d6ea108537afd197af7f-text/javascript">
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+
+	gtag("consent", "default", {
+		ad_personalization: "denied",
+		ad_storage: "denied",
+		ad_user_data: "denied",
+		analytics_storage: "denied",
+		functionality_storage: "denied",
+		personalization_storage: "denied",
+		security_storage: "granted",
+		wait_for_update: 500,
+	});
+	gtag("set", "ads_data_redaction", true);
+	gtag("set", "url_passthrough", true);
+</script>
+<script type="c812d6ea108537afd197af7f-text/javascript" id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-implementation="wp" data-cbid="0fe4428e-513d-42f0-a423-58dd9637f435" data-culture="EL"></script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="alternate" hreflang="el" href="https://www.zorbas.com.cy/" />
+<link rel="alternate" hreflang="en" href="https://www.zorbas.com.cy/en/" />
+<link rel="alternate" hreflang="x-default" href="https://www.zorbas.com.cy/" />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO Premium plugin v25.5 (Yoast SEO v25.5) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Καλώς ήρθατε &#8211; Φούρνοι Ζορπάς</title>
+	<meta name="description" content="Ανακαλύψτε τον κόσμο των Φούρνων Ζορπάς, όπου η παράδοση συναντά τη σύγχρονη αρτοποιητική τέχνη, και ζήστε μοναδικά γευστικά ταξίδια!" />
+	<link rel="canonical" href="https://www.zorbas.com.cy/" />
+	<meta property="og:locale" content="el_GR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Φούρνοι Ζορπάς" />
+	<meta property="og:description" content="Ανακαλύψτε τον κόσμο των Φούρνων Ζορπάς, όπου η παράδοση συναντά τη σύγχρονη αρτοποιητική τέχνη, και ζήστε μοναδικά γευστικά ταξίδια!" />
+	<meta property="og:url" content="https://www.zorbas.com.cy/" />
+	<meta property="og:site_name" content="Φούρνοι Ζορπάς" />
+	<meta property="article:publisher" content="https://www.facebook.com/zorbascy" />
+	<meta property="article:modified_time" content="2025-02-11T08:37:35+00:00" />
+	<meta property="og:image" content="https://www.zorbas.com.cy/wp-content/uploads/zorbas-logo-google.jpg?_t=1739263055" />
+	<meta property="og:image:width" content="1000" />
+	<meta property="og:image:height" content="1000" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Φούρνοι Ζορπάς" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.zorbas.com.cy/","url":"https://www.zorbas.com.cy/","name":"Καλώς ήρθατε &#8211; Φούρνοι Ζορπάς","isPartOf":{"@id":"https://www.zorbas.com.cy/#website"},"about":{"@id":"https://www.zorbas.com.cy/#organization"},"primaryImageOfPage":{"@id":"https://www.zorbas.com.cy/#primaryimage"},"image":{"@id":"https://www.zorbas.com.cy/#primaryimage"},"thumbnailUrl":"https://www.zorbas.com.cy/wp-content/uploads/zorbas-logo-google.jpg","datePublished":"2022-12-19T08:51:19+00:00","dateModified":"2025-02-11T08:37:35+00:00","description":"Ανακαλύψτε τον κόσμο των Φούρνων Ζορπάς, όπου η παράδοση συναντά τη σύγχρονη αρτοποιητική τέχνη, και ζήστε μοναδικά γευστικά ταξίδια!","breadcrumb":{"@id":"https://www.zorbas.com.cy/#breadcrumb"},"inLanguage":"el","potentialAction":[{"@type":"ReadAction","target":["https://www.zorbas.com.cy/"]}]},{"@type":"ImageObject","inLanguage":"el","@id":"https://www.zorbas.com.cy/#primaryimage","url":"https://www.zorbas.com.cy/wp-content/uploads/zorbas-logo-google.jpg","contentUrl":"https://www.zorbas.com.cy/wp-content/uploads/zorbas-logo-google.jpg","width":1000,"height":1000},{"@type":"BreadcrumbList","@id":"https://www.zorbas.com.cy/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Αρχική"}]},{"@type":"WebSite","@id":"https://www.zorbas.com.cy/#website","url":"https://www.zorbas.com.cy/","name":"Φούρνοι Ζορπάς","description":"","publisher":{"@id":"https://www.zorbas.com.cy/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.zorbas.com.cy/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"el"},{"@type":"Organization","@id":"https://www.zorbas.com.cy/#organization","name":"Φούρνοι Ζορπάς","url":"https://www.zorbas.com.cy/","logo":{"@type":"ImageObject","inLanguage":"el","@id":"https://www.zorbas.com.cy/#/schema/logo/image/","url":"https://www.zorbas.com.cy/wp-content/uploads/zorpas-logo.svg","contentUrl":"https://www.zorbas.com.cy/wp-content/uploads/zorpas-logo.svg","width":1,"height":1,"caption":"Φούρνοι Ζορπάς"},"image":{"@id":"https://www.zorbas.com.cy/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/zorbascy","https://www.instagram.com/zorbascy/","https://www.youtube.com/@zorbasbakeries3022"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//static.addtoany.com' />
+<link rel='stylesheet' id='agile-store-locator-init-css' href='https://www.zorbas.com.cy/wp-content/plugins/agile-store-locator/public/css/init.css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css' href='https://www.zorbas.com.cy/wp-content/plugins/contact-form-7/includes/css/styles.css' media='all' />
+<link rel='stylesheet' id='wpml-menu-item-0-css' href='https://www.zorbas.com.cy/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.min.css' media='all' />
+<link rel='stylesheet' id='zorpas-style-css' href='https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/scss/style.min.css?v=5.2.665&#038;ver=6.8.3' media='all' />
+<link rel='stylesheet' id='addtoany-css' href='https://www.zorbas.com.cy/wp-content/plugins/add-to-any/addtoany.min.css' media='all' />
+<script src="https://www.zorbas.com.cy/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://www.zorbas.com.cy/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script id="wpml-cookie-js-extra" type="c812d6ea108537afd197af7f-text/javascript">
+var wpml_cookies = {"wp-wpml_current_language":{"value":"el","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"el","expires":1,"path":"\/"}};
+</script>
+<script src="https://www.zorbas.com.cy/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js" id="wpml-cookie-js" defer data-wp-strategy="defer" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script id="addtoany-core-js-before" type="c812d6ea108537afd197af7f-text/javascript">
+window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};a2a_localize = {
+	Share: "Μοιραστείτε",
+	Save: "Αποθήκευση",
+	Subscribe: "Εγγραφείτε",
+	Email: "Email",
+	Bookmark: "Προσθήκη στα Αγαπημένα",
+	ShowAll: "Προβολή όλων",
+	ShowLess: "Προβολή λιγότερων",
+	FindServices: "Αναζήτηση υπηρεσίας(ιών)",
+	FindAnyServiceToAddTo: "Άμεση προσθήκη κάθε υπηρεσίας",
+	PoweredBy: "Powered by",
+	ShareViaEmail: "Μοιραστείτε μέσω e-mail",
+	SubscribeViaEmail: "Εγγραφείτε μέσω e-mail",
+	BookmarkInYourBrowser: "Προσθήκη στα Αγαπημένα μέσα από τον σελιδοδείκτη σας",
+	BookmarkInstructions: "Πατήστε Ctrl+D or \u2318+D για να προσθέσετε τη σελίδα στα Αγαπημένα σας",
+	AddToYourFavorites: "Προσθήκη στα Αγαπημένα",
+	SendFromWebOrProgram: "Αποστολή από οποιοδήποτε e-mail διεύθυνση ή e-mail πρόγραμμα",
+	EmailProgram: "E-mail πρόγραμμα",
+	More: "Περισσότερα &#8230;",
+	ThanksForSharing: "Ευχαριστώ για την κοινοποίηση!",
+	ThanksForFollowing: "Ευχαριστώ που με ακολουθείτε!"
+};
+</script>
+<script defer src="https://static.addtoany.com/menu/page.js" id="addtoany-core-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script defer src="https://www.zorbas.com.cy/wp-content/plugins/add-to-any/addtoany.min.js" id="addtoany-jquery-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/js/index.js?v=5.1.9991&amp;ver=6.8.3" id="zorpas-js-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<link rel="https://api.w.org/" href="https://www.zorbas.com.cy/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.zorbas.com.cy/wp-json/wp/v2/pages/13" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.zorbas.com.cy/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.8.3" />
+<link rel='shortlink' href='https://www.zorbas.com.cy/' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.zorbas.com.cy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.zorbas.com.cy%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.zorbas.com.cy/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.zorbas.com.cy%2F&#038;format=xml" />
+<meta name="generator" content="WPML ver:4.7.6 stt:1,13;" />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to automatic -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var dataLayer_content = {"pagePostType":"frontpage","pagePostType2":"single-page","pagePostAuthor":"christos"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script data-cfasync="false" data-pagespeed-no-defer>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTXVHJG');
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><link rel="icon" href="https://www.zorbas.com.cy/wp-content/uploads/cropped-zorbas-favicon-01-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.zorbas.com.cy/wp-content/uploads/cropped-zorbas-favicon-01-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.zorbas.com.cy/wp-content/uploads/cropped-zorbas-favicon-01-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.zorbas.com.cy/wp-content/uploads/cropped-zorbas-favicon-01-270x270.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<!-- Background color for sub-menu -->
+		<style>
+			
+		.grecaptcha-badge{
+			display: none !important;
+		}
+		
+		.header nav .menu>li.menu-item-has-children .sub-menu li{
+			background-color: #e6d77e !important;
+		}
+
+		/* Preload diagonios */
+		.z-background-zorpas{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.97;
+			
+		}
+
+		.z-background-zorpas .top-part,
+		.z-background-zorpas .bottom-part{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			overflow: hidden;
+		}
+
+		.z-background-zorpas .top-part{
+			-webkit-clip-path: polygon(0 0, 100% 0%, 100% 7%, 0% 93%);
+			clip-path: polygon(0 0, 100% 0%, 100% 7%, 0% 93%);
+			top: -1px;
+		}
+		
+			
+		/* Neo psomi heading - max width fix */
+		.single.postid-6454 .blog-hero__title h1{
+			max-width: 830px;
+		}
+		
+	</style>
+</head>
+
+<body class="home wp-singular page-template page-template-templates page-template-landing page-template-templateslanding-php page page-id-13 wp-theme-zorpas">
+
+<!-- GTM Container placement set to automatic -->
+<!-- Google Tag Manager (noscript) -->
+				<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTXVHJG" height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><div id="page" class="site">
+
+	<header class="header" class="site-header">
+		<div class="header-inner">
+			<div class="left-logo">
+				<a href="/">
+					<img data-no-lazy="1" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/zorpas-bread-logo.svg" alt="">
+					<img data-no-lazy="1" class="mobile-logo" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/zorpas-logo.svg" alt="">
+				</a>
+			</div>
+			<div class="nav-left">
+				<nav>
+					<div class="menu-main-nav-container"><ul id="menu-main-nav" class="menu"><li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://www.zorbas.com.cy/our-company/">ΦΟΥΡΝΟΙ ΖΟΡΠΑΣ</a></li>
+<li id="menu-item-98" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-98"><a href="#/">ΠΡΟΪΟΝΤΑ</a>
+<ul class="sub-menu">
+	<li id="menu-item-100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-100"><a href="/proionta/artopoieio/">ΑΡΤΟΠΟΙΕΙΟ</a></li>
+	<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="/proionta/zaxaroplasteio/">ΖΑΧΑΡΟΠΛΑΣΤΕΙΟ</a></li>
+	<li id="menu-item-102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-102"><a href="/proionta/fagito/">ΦΑΓΗΤΟ</a></li>
+	<li id="menu-item-99" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-99"><a href="/proionta/xymos/">ΧΥΜΟΣ</a></li>
+</ul>
+</li>
+<li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-628"><a href="#/">MY BAKERY</a>
+<ul class="sub-menu">
+	<li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a href="https://www.zorbas.com.cy/my-bakery/">ΠΡΟΓΡΑΜΜΑ ΠΡΟΝΟΜΙΩΝ</a></li>
+	<li id="menu-item-579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-579"><a href="https://www.zorbas.com.cy/click-and-pick/">CLICK &#038; PICK</a></li>
+	<li id="menu-item-6544" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6544"><a href="https://www.zorbas.com.cy/student-scheme/">STUDENT SCHEME</a></li>
+</ul>
+</li>
+</ul></div>				</nav>
+			</div>
+			<div class="logo">
+				<a href="/">
+					<img data-no-lazy="1" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/zorpas-logo.svg" alt="">
+				</a>
+			</div>
+			<div class="nav-right">
+				<nav>
+					<div class="menu-header-right-menu-container"><ul id="menu-header-right-menu" class="menu"><li id="menu-item-138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-138"><a href="https://www.zorbas.com.cy/blog/">BLOG</a></li>
+<li id="menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139"><a href="https://www.zorbas.com.cy/contact/">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+</ul></div>				</nav>
+
+				<ul>
+					<li class="socials">
+						<a target="blank" href="https://www.facebook.com/zorbascy">
+							<img data-no-lazy="1" style="height: 18px;" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/facebook-icon.svg" alt="">
+						</a>
+						<a target="blank" href="https://www.instagram.com/zorbascy/">
+							<img data-no-lazy="1" style="height: 18px;" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/instagram-icon.svg" alt="">
+						</a>
+					</li>
+					<li class="language-switcher">
+						<div class="menu-language-switcher-container"><ul id="menu-language-switcher" class="menu"><li id="menu-item-wpml-ls-54-el" class="menu-item wpml-ls-slot-54 wpml-ls-item wpml-ls-item-el wpml-ls-current-language wpml-ls-menu-item wpml-ls-first-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-54-el"><a href="https://www.zorbas.com.cy/" title="Αλλαγή σε ΕΛΛ"><span class="wpml-ls-display">ΕΛΛ</span></a></li>
+<li id="menu-item-wpml-ls-54-en" class="menu-item wpml-ls-slot-54 wpml-ls-item wpml-ls-item-en wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-54-en"><a href="https://www.zorbas.com.cy/en/" title="Αλλαγή σε ENG"><span class="wpml-ls-display">ENG</span></a></li>
+</ul></div>					</li>
+				</ul>
+	
+			</div>
+			<div class="mobile-menu-toggle-btn">
+				<div class="mobile-menu-icon">
+					<div class="line line-1"></div>
+					<div class="line line-2"></div>
+					<div class="line line-3"></div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="mobile-nav">
+		<nav>
+			<div class="menu-mobile-menu-container"><ul id="menu-mobile-menu" class="menu"><li id="menu-item-160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-160"><a href="https://www.zorbas.com.cy/our-company/">ΦΟΥΡΝΟΙ ΖΟΡΠΑΣ</a></li>
+<li id="menu-item-161" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-161"><a href="#">ΠΡΟΪΟΝΤΑ</a>
+<ul class="sub-menu">
+	<li id="menu-item-162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="/proionta/artopoieio/">ΑΡΤΟΠΟΙΕΙΟ</a></li>
+	<li id="menu-item-163" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-163"><a href="/proionta/zaxaroplasteio/">ΖΑΧΑΡΟΠΛΑΣΤΕΙΟ</a></li>
+	<li id="menu-item-164" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-164"><a href="/proionta/fagito/">ΦΑΓΗΤΟ</a></li>
+	<li id="menu-item-165" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-165"><a href="/proionta/xymos/">ΧΥΜΟΣ</a></li>
+</ul>
+</li>
+<li id="menu-item-708" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-708"><a href="#/">MY BAKERY</a>
+<ul class="sub-menu">
+	<li id="menu-item-158" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="https://www.zorbas.com.cy/my-bakery/">ΠΡΟΓΡΑΜΜΑ ΠΡΟΝΟΜΙΩΝ</a></li>
+	<li id="menu-item-581" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-581"><a href="https://www.zorbas.com.cy/click-and-pick/">CLICK &#038; PICK</a></li>
+	<li id="menu-item-6545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6545"><a href="https://www.zorbas.com.cy/student-scheme/">STUDENT SCHEME</a></li>
+</ul>
+</li>
+<li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="https://www.zorbas.com.cy/blog/">BLOG</a></li>
+<li id="menu-item-159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-159"><a href="https://www.zorbas.com.cy/contact/">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+<li id="menu-item-5648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5648"><a target="_blank" href="https://g47t.adj.st/restaurants/view?chain=zorbas&#038;adj_t=vlp6d1b_x4un7jk&#038;adj_deep_link=foodycy%3A%2F%2Fapp.foody.com.cy%2Frestaurants%2Fview%3Fchain%3Dzorbas&#038;adj_campaign=zorbas-site%26utm_source%3Dzorbas%26utm_medium%3Dnative&#038;adj_redirect=https%3A%2F%2Fwww.foody.com.cy%2Fdelivery%2Fmenu%2Fzorbas%26utm_source%3Dzorbas%26utm_medium%3Dnative%26utm_campaign%3Dzorbas-site">FOODY DELIVERY</a></li>
+</ul></div>		</nav>
+		<ul class="mobile-socials">
+			<li class="socials">
+				<a href="#">
+					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/facebook-icon.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/facebook-icon.svg" alt=""></noscript>
+				</a>
+				<a href="#">
+					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/instagram-icon.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/instagram-icon.svg" alt=""></noscript>
+				</a>
+			</li>
+		</ul>
+		<div class="kentro-eksipiretisis">
+			Κέντρο εξυπηρέτησης: <b>80000600</b> (χωρίς χρέωση)		</div>
+	</div>
+
+
+
+<div class="landing-hero-section">
+    <div class="z-background-zorpas">
+        <div style="background-color: rgb(170,85,27)"class="top-part"></div>
+        <div class="bottom-part"></div>
+    </div>
+    <div class="landing-hero-section__image"></div>
+    <div class="landing-hero-section__video">
+        <video autoplay muted playsinline loop src="https://www.zorbas.com.cy/wp-content/uploads/mesimeri-4-june-2025.mp4" poster="data:image/jpeg;base64,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"></video>
+    </div>
+    <div class="landing-hero-section__title">
+        <p>Απόλαυση για κάθε τώρα</p>
+        <h1>
+            <a href="https://www.zorbas.com.cy/time-of-the-day/kalo-mesimeri/">ΚΑΛΟ ΜΕΣΗΜΕΡΙ</a>
+        </h1>
+    </div>
+</div>
+
+<div class="helper-menu">
+    <div class="container">
+        <div class="helper-menu-inner">
+            <div class="left-side radius-3" style="background-color:#e6d77e">
+                <div class="icon-based-on-time">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/half-sun-icon.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/uploads/half-sun-icon.svg"></noscript>
+                </div>
+            </div>
+            <div class="center-side radius-3" style="background-color:#e6d77e">
+                <div class="tilefono-eksipiretisis">
+                    <span>
+                        <span class="inner-span">Κέντρο εξυπηρέτησης</span>
+                        <b>80000600</b> (χωρίς χρέωση)
+                    </span>
+                </div>
+                <!-- <div class="foody-delivery">
+                    <a target="blank" href="https://www.foody.com.cy/">
+                        <div class="foody-delivery__title">DELIVERY</div>
+                        <div class="foody-delivery__link">
+                            Παράγγειλε μέσω Foody                        </div>
+                    </a>
+                </div> -->
+                <div class="hour-display"></div>
+                <div class="geolocation-result">
+                    <span class="subtitle">Η τοποθεσία μου</span>
+                    <span class="result">Αναμονή για τοποθεσία</span>
+                </div>
+            </div>
+            <div class="right-side radius-3 geo-trigger" style="background-color:#e6d77e">
+                <a href="/contact">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/navigation-icon.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/navigation-icon.svg" alt=""></noscript>
+                    <span class="geo-trigger-text-desktop">ΒΡΕΣ</span>
+                    <span class="geo-trigger-text-mobile">ΚΟΝΤΑ ΜΟΥ</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .promo-banner-left{
+        height: 100% !important;
+    }
+    .promo-banner-left img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @media screen and (min-width: 800px){
+        .promo-space .row{
+        margin: 0 -5px;
+        }
+        .promo-space .col-12{
+            padding: 0 5px;
+        }
+    }
+    html[lang="en-US"] .banner-gr{
+       display: none;
+    }
+    html[lang="en-US"] .banner-en{
+       display: block !important;
+    }
+	.cta-btn{
+        position: absolute;
+        z-index: 10;
+        background: #267157;
+        padding: 9px 22px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 60px;
+        bottom: 28px;
+        pointer-events: none;
+        letter-spacing: 0.3px;
+    }
+</style>
+
+<div class="promo-space">
+    <div class="container">
+        <div class="row">
+           <div class="col-12 col-md-3" style="display: none;">
+<!--                 <div class="promo-banner-left">
+                    <a class="banner-gr" target="_blank" href="/yparxei-se-kathe-eyxi">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/website-xmas-banner.jpg"><noscript><img src="https://www.zorbas.com.cy/wp-content/uploads/website-xmas-banner.jpg" alt=""></noscript>
+                    </a>
+                    <a style="display: none;" class="banner-en" target="_blank" href="/en/it-exists-in-every-wish/">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/website-xmas-banner-en.jpg"><noscript><img src="https://www.zorbas.com.cy/wp-content/uploads/website-xmas-banner-en.jpg" alt=""></noscript>
+                    </a>
+					<div class="cta-btn">
+                        Γράψε την ευχή σου                    </div>
+                </div> -->
+            </div>
+			<!-- it was col-md-12 -->
+             <style>
+                @media screen and (min-width: 701px){
+                    .promo-space .promo-banner video{
+                        aspect-ratio: 21/8.7;
+                    }
+                }
+             </style>
+            <div class="col-12 col-md-12">
+                <div class="promo-banner">
+                    <style>
+                        .peninta-cta-button{
+                            position: absolute;
+                            bottom: 20px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            z-index: 10;
+                        }
+                        .peninta-cta-button a{
+                            color: #222;
+                            cursor: pointer;
+                        }
+                        .peninta-cta-button a .right-arrow{
+                            font-size: 20px;
+                            display: inline-block;
+                            position: relative;
+                            top: 2px;
+                            margin-left: 2px;
+                        }
+                    </style>
+                    <div class="peninta-cta-button">
+                        <div class="btn btn-y-large">
+                            <a href="https://www.zorbas.com.cy/50-xronia/">50 Χρoνια Ζορπας</a>
+                            <div class="btn-box-shadow"></div>
+                        </div>
+                        <!-- <a href="https://www.zorbas.com.cy/50-xronia/">
+                            50 Χρόνια Ζορπάς <div class="right-arrow">&#8594;</div>
+                        </a> -->
+                    </div>
+                    <div class="unmute-button">
+                        ΠΑΤΗΣΕ ΓΙΑ ΗΧΟ                    </div>
+                    <video class="lazy-load-custom" autoplay muted loop playsinline data-src-desktop="https://www.zorbas.com.cy/wp-content/uploads/50-xronia-campaign-video.mp4" data-src-mobile="https://www.zorbas.com.cy/wp-content/uploads/50-xronia-campaign-video-mobile.mp4"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="foody-banner mt-m">
+
+    <div class="z-background-zorpas">
+        <div style="background-color: #d9d8d6" class="top-part"></div>
+        <div style="background-color: #e7e5e2" class="bottom-part"></div>
+    </div>
+   
+    <div class="container">
+        <div class="foody-banner__inner">
+            <!--<img class="foody-icon" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/foody-icon.svg"><noscript><img class="foody-icon" src="https://www.zorbas.com.cy/wp-content/uploads/foody-icon.svg"></noscript>-->
+            <h2>FOODY DELIVERY</h2>
+            <div class="cta-link btn">
+                <a target="blank" href="https://g47t.adj.st/restaurants/view?chain=zorbas&adj_t=vlp6d1b_x4un7jk&adj_deep_link=foodycy%3A%2F%2Fapp.foody.com.cy%2Frestaurants%2Fview%3Fchain%3Dzorbas&adj_campaign=zorbas-site%26utm_source%3Dzorbas%26utm_medium%3Dnative&adj_redirect=https%3A%2F%2Fwww.foody.com.cy%2Fdelivery%2Fmenu%2Fzorbas%26utm_source%3Dzorbas%26utm_medium%3Dnative%26utm_campaign%3Dzorbas-site">ΠΑΡΑΓΓΕΙΛΕ ΤΩΡΑ ΜΕΣΩ FOODY</a>
+                <div class="btn-box-shadow"></div>
+            </div>
+            <!-- <div class="download-links">
+                <div class="text">Κατέβασε την εφαρμογή</div>
+                <a target="blank" href="https://app.adjust.com/lw6uquy">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/foody-app-store-icon.png"><noscript><img src="https://www.zorbas.com.cy/wp-content/uploads/foody-app-store-icon.png"></noscript>
+                </a>
+                <a target="blank" href="https://app.adjust.com/x0mhlzj">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/foody-play-store-icon.png"><noscript><img src="https://www.zorbas.com.cy/wp-content/uploads/foody-play-store-icon.png"></noscript>
+                </a>
+                <a target="blank" href="https://appgallery.huawei.com/#/app/C101889543">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/foody-app-gallery.png"><noscript><img src="https://www.zorbas.com.cy/wp-content/uploads/foody-app-gallery.png"></noscript>
+                </a>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="featured-products mt-m">
+    <div class="container">
+        <div class="featured-products__title">
+            <h2>ΑΠΟΛΑΥΣΗ ΓΙΑ ΚΑΘΕ ΤΩΡΑ</h2>
+            <p><p>Για τις στιγμές που η ερώτηση «τι θα φάμε σήμερα;» σου ακούγεται πιο δύσκολη και από μαθηματική εξίσωση. Απόλαυσε ένα θρεπτικό, ποιοτικό και γεμάτο γεύση μεσημεριανό, επιλέγοντας ανάμεσα σε μαγειρευτά, σαλάτες, σάντουιτς και γεύματα γιαουρτιού.</p>
+</p>
+        </div>
+        <div class="featured-products__list mt-s">
+            <div class="row">
+                                    <div class="col-12 col-md-4">
+                            <div class="product">
+                                <div class="product__image radius-3">
+                                    <div class="product__image__wrapper">
+                                        <img class="w-100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/keftedakia-june-2025.jpg"><noscript><img class="w-100" src="https://www.zorbas.com.cy/wp-content/uploads/keftedakia-june-2025.jpg" alt=""></noscript>
+                                    </div>
+                                </div>
+                                <div class="product__title">
+                                    <h4>Κεφτέδες</h4>
+                                </div>
+                                <div class="product__description">
+                                    <p>
+                                        <p>Αν η νοσταλγία είχε γεύση, θα ήταν αυτή των κεφτέδων. Με τραγανή κρούστα και ελαφρύ άρωμα κανέλας, αφράτοι και ζουμεροί στο εσωτερικό, σε ταξιδεύουν στην εποχή που ήσουν παιδί.</p>
+                                    </p>
+                                </div>
+
+                                <div class="show-info-on-mobile-button">
+                                    <span>
+                                        ΜΑΘΕ ΠΕΡΙΣΣΟΤΕΡΑ                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                                    <div class="col-12 col-md-4">
+                            <div class="product">
+                                <div class="product__image radius-3">
+                                    <div class="product__image__wrapper">
+                                        <img class="w-100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/panini-piperia.jpg"><noscript><img class="w-100" src="https://www.zorbas.com.cy/wp-content/uploads/panini-piperia.jpg" alt=""></noscript>
+                                    </div>
+                                </div>
+                                <div class="product__title">
+                                    <h4>Πανίνι ολικής άλεσης με ψητή πιπεριά, γαλοπούλα και μαρμελάδα σύκο</h4>
+                                </div>
+                                <div class="product__description">
+                                    <p>
+                                        <p>Για τα μεσημέρια που αναζητάς πιο εκλεπτυσμένες γεύσεις, αυτό το πανίνι έρχεται με μια εξαιρετική γευστική πρόταση. Ψητή πιπεριά, γαλοπούλα, ρόκα και τυρί Philadelphia συναντούν τη μαρμελάδα σύκο, σε έναν αναπάντεχο συνδυασμό που εντυπωσιάζει.    </p>
+                                    </p>
+                                </div>
+
+                                <div class="show-info-on-mobile-button">
+                                    <span>
+                                        ΜΑΘΕ ΠΕΡΙΣΣΟΤΕΡΑ                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                                    <div class="col-12 col-md-4">
+                            <div class="product">
+                                <div class="product__image radius-3">
+                                    <div class="product__image__wrapper">
+                                        <img class="w-100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/tsiapata-laxanika.jpg"><noscript><img class="w-100" src="https://www.zorbas.com.cy/wp-content/uploads/tsiapata-laxanika.jpg" alt=""></noscript>
+                                    </div>
+                                </div>
+                                <div class="product__title">
+                                    <h4>Τσιαπάτα με ψητά λαχανικά και κεφαλοτύρι Δανίας</h4>
+                                </div>
+                                <div class="product__description">
+                                    <p>
+                                        <p>Η ανατροπή στο μεσημεριανό σου έρχεται με μια αφράτη τσιαπάτα. Γεμίζει με ψητή κόκκινη πιπεριά και μελιτζάνα, κεφαλοτύρι Δανίας και καραμελωμένα κρεμμύδια. Τα φύλλα άγριας ρόκας και το γλάσο βαλσάμικου δίνουν άλλη διάσταση στην απόλαυση.</p>
+                                    </p>
+                                </div>
+
+                                <div class="show-info-on-mobile-button">
+                                    <span>
+                                        ΜΑΘΕ ΠΕΡΙΣΣΟΤΕΡΑ                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                 
+                
+            </div>  
+            <div class="flex-xy-center mt-s">
+                <div class="btn btn-y-large">
+                    <a href="https://www.zorbas.com.cy/time-of-the-day/kalo-mesimeri/">Μαθε τι θα μπορουσες να απολαυσεις ΤΩΡΑ!</a>
+                    <div class="btn-box-shadow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="cta-banner mt-l pt-m pb-m">
+    <!-- <div class="cookie-parallax">
+        <img data-no-lazy="1" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/cookie-parallax.png" alt="">
+    </div>
+    <div class="cookie-parallax-2">
+        <img data-no-lazy="1" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/cookie-parallax.png" alt="">
+    </div>
+    <div class="cookie-parallax-3">
+        <img data-no-lazy="1" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/cookie-parallax-2.png" alt="">
+    </div> -->
+    <div class="z-background-zorpas">
+        <div style="background-color: #EAD986" class="top-part"></div>
+    </div>
+    <div class="my-bakery-phone">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-phone.png"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-phone.png" alt=""></noscript>
+    </div>
+    <div class="container">
+        <div class="cta-banner__title">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-logo.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-logo.svg" alt=""></noscript>
+            <p>
+                Με το πρόγραμμα προνομίων My Bakery, κερδίζεις κάθε φορά. Κατέβασε τώρα το Μy Bakery app για να απολαμβάνεις καθημερινά, μοναδικά προνόμια, εύκολα και γρήγορα. Επιπλέον, ενημερώνεσαι άμεσα για τις τελευταίες προσφορές και βρίσκεις το πιο κοντινό κατάστημα για να τις αξιοποιήσεις.</br>Απόλαυσε την εμπειρία του My Bakery app τώρα.            </p>
+        </div>
+        <div class="download-app mt-s">
+            <a target="blank" href="https://apps.apple.com/cy/app/my-bakery/id1075394689">
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-app-store.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-app-store.svg" alt=""></noscript>
+            </a>
+            <a target="blank" href="https://play.google.com/store/apps/details?id=com.crm.rewards.v3.zorbas">
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-play-store.svg"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/my-bakery-play-store.svg" alt=""></noscript>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="featured-blog mt-s">
+    <div class="container">
+        <h2 class="featured-blog-title">BLOG</h2>
+        <div class="featured-posts mt-s">
+            <div class="row">
+                                <div class="col-12 col-md-4">
+                    <div class="post">
+                        <a href="https://www.zorbas.com.cy/birthday/">
+                            <div class="post-image radius-3">
+                                <div class="image-wrapper animate">
+                                    <img style="max-height: unset !important;" class="w-100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/web_800x1200-1.jpg"><noscript><img style="max-height: unset !important;" class="w-100" src="https://www.zorbas.com.cy/wp-content/uploads/web_800x1200-1.jpg" alt=""></noscript>
+                                </div>
+                            </div>
+                            <div class="post-date">26 Σεπτεμβρίου, 2025</div>
+                            <div class="post-title">
+                                <h3>ΜΙΣΗ ΤΙΜΗ, ΟΛΟΚΛΗΡΗ ΑΠΟΛΑΥΣΗ</h3>
+                            </div>
+                            <div class="post-description">
+                                <p>
+                                    <p>Σε όλα τα ψωμιά ΖΟΡΠΑΣ.</p>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-12 col-md-4">
+                    <div class="post">
+                        <a href="https://www.zorbas.com.cy/backtoschool/">
+                            <div class="post-image radius-3">
+                                <div class="image-wrapper animate">
+                                    <img style="max-height: unset !important;" class="w-100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/zorbas-blog-bts-gr.jpg"><noscript><img style="max-height: unset !important;" class="w-100" src="https://www.zorbas.com.cy/wp-content/uploads/zorbas-blog-bts-gr.jpg" alt=""></noscript>
+                                </div>
+                            </div>
+                            <div class="post-date">5 Σεπτεμβρίου, 2025</div>
+                            <div class="post-title">
+                                <h3>Διαγωνισμός Back to School</h3>
+                            </div>
+                            <div class="post-description">
+                                <p>
+                                    <p>Πάνω από 2.000 δώρα!</p>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                                <div class="col-12 col-md-4">
+                    <div class="post">
+                        <a href="https://www.zorbas.com.cy/kalokairinos-diagonismos-my-bakery/">
+                            <div class="post-image radius-3">
+                                <div class="image-wrapper animate">
+                                    <img style="max-height: unset !important;" class="w-100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/uploads/kalokairinos-diagonismos-post-gr.jpg"><noscript><img style="max-height: unset !important;" class="w-100" src="https://www.zorbas.com.cy/wp-content/uploads/kalokairinos-diagonismos-post-gr.jpg" alt=""></noscript>
+                                </div>
+                            </div>
+                            <div class="post-date">23 Ιουλίου, 2025</div>
+                            <div class="post-title">
+                                <h3>ΚΑΛΟΚΑΙΡΙΝΟΣ ΔΙΑΓΩΝΙΣΜΟΣ</h3>
+                            </div>
+                            <div class="post-description">
+                                <p>
+                                    <p>Απόλαυσε τα αγαπημένα σου προϊόντα ΖΟΡΠΑΣ και κέρδισε καλοκαιρινά δώρα! </p>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+
+<div data-bg="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/coffee-berry-demo-2.jpg" class="cta-banner coffee-berry mt-m rocket-lazyload" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="cta-banner__title">
+                    <div class="coffee-berry-transparent-image">
+                       <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/coffee-berry.png"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/coffee-berry.png" alt=""></noscript>
+                   </div>
+                    <p>
+                    Μοναδική εμπειρία καφέ που ακολουθεί τις σύγχρονες τάσεις και αναγκές των καταναλωτών με πληθώρα επιλογών που μπορούν να ικανοποιήσουν όλους τους λάτρεις του καφέ.                    </p>
+                </div>
+                <div class="btn-align">
+                    <div class="btn radius-3" style="background-color: #84533D; color: #fff;">
+                        <a style="border: 0" target="_blank" href="https://coffeeberry.coffee/"> <b>Επισκεψου</b> την επισημη ιστοσελιδα </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-12 col-md-6">
+                <div class="coffee-berry-transparent-image">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/coffee-berry.png"><noscript><img src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/coffee-berry.png" alt=""></noscript>
+                </div> 
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+	<div class="footer-wrapper-for-100vh">
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-inner">
+					<div class="footer-left">
+						<nav>
+							<div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-217" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-217"><a target="_blank" href="https://zorbasgroup.com/career/">Καριέρα</a></li>
+<li id="menu-item-698" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-698"><a target="_blank" href="https://myzorbas.com.cy">Η γνώμη σου μετράει!</a></li>
+<li id="menu-item-436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-436"><a href="https://www.zorbas.com.cy/perivallontiki-politiki/">Περιβαλλοντική πολιτική</a></li>
+<li id="menu-item-204" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-204"><a href="https://www.zorbas.com.cy/politiki-aporritoy/">Πολιτική απορρήτου</a></li>
+<li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-203"><a href="https://www.zorbas.com.cy/terms-of-use/">Όροι χρήσης</a></li>
+<li id="menu-item-795" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-795"><a href="https://www.zorbas.com.cy/nikites-diagonismon/">Νικητές διαγωνισμών</a></li>
+<li id="menu-item-1174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1174"><a href="https://www.zorbas.com.cy/oroi-diagonismon/">Όροι διαγωνισμών</a></li>
+</ul></div>						</nav>
+					</div>
+					<div class="footer-center">
+						<img data-no-lazy="1" src="https://www.zorbas.com.cy/wp-content/themes/zorpas/assets/images/zorpas-logo.svg" alt="">
+					</div>
+					<div class="footer-right">
+						<span>
+							<b>Επικοινωνία</b><br>
+							Α. Ζορπάς & Υιοί Λτδ, Αρμενίας 51,<br>
+							2006 Στρόβολος, Λευκωσία, Κύπρος<br>
+							PO BOX 20575, 1660<br>							<br>
+							Κέντρο εξυπηρέτησης: <b>80000600</b> (Χωρίς χρέωση)							<br>
+							<br>
+							<a target="_blank" href="/cdn-cgi/l/email-protection#244d4a424b645e4b564645570a474b490a475d"><span class="__cf_email__" data-cfemail="422b2c242d02382d302023316c212d2f6c213b">[email&#160;protected]</span></a>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="omilos-zorpas">
+				<p>ΟΜΙΛΟΣ ΖΟΡΠΑΣ</p>
+			</div>  -->
+		</footer>
+		<div class="copyright">
+			<p style="opacity: 0.7;"><a target="_blank" href="https://catalytica.gr/">A Catalytica project</a></p>
+			<p>2025 &copy; Α. Ζορπάς & Υιοί Λτδ. All Rights Reserved.</p>
+		</div>
+	</div>
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/zorpas\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script src="https://www.zorbas.com.cy/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://www.zorbas.com.cy/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script id="wp-i18n-js-after" type="c812d6ea108537afd197af7f-text/javascript">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script src="https://www.zorbas.com.cy/wp-content/plugins/contact-form-7/includes/swv/js/index.js" id="swv-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script id="contact-form-7-js-translations" type="c812d6ea108537afd197af7f-text/javascript">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "contact-form-7", {"translation-revision-date":"2024-08-02 09:16:28+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"el_GR"},"This contact form is placed in the wrong place.":["\u0397 \u03c6\u03cc\u03c1\u03bc\u03b1 \u03b5\u03c0\u03b9\u03ba\u03bf\u03b9\u03bd\u03c9\u03bd\u03af\u03b1\u03c2 \u03b5\u03af\u03bd\u03b1\u03b9 \u03c3\u03b5 \u03bb\u03ac\u03b8\u03bf\u03c2 \u03b8\u03ad\u03c3\u03b7."],"Error:":["\u03a3\u03c6\u03ac\u03bb\u03bc\u03b1:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
+</script>
+<script id="contact-form-7-js-before" type="c812d6ea108537afd197af7f-text/javascript">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/www.zorbas.com.cy\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+</script>
+<script src="https://www.zorbas.com.cy/wp-content/plugins/contact-form-7/includes/js/index.js" id="contact-form-7-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfBXC0pAAAAAAWWTxA-_eNGglYZ3mycplowRcyB&amp;ver=3.0" id="google-recaptcha-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="https://www.zorbas.com.cy/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script id="wpcf7-recaptcha-js-before" type="c812d6ea108537afd197af7f-text/javascript">
+var wpcf7_recaptcha = {
+    "sitekey": "6LfBXC0pAAAAAAWWTxA-_eNGglYZ3mycplowRcyB",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+</script>
+<script src="https://www.zorbas.com.cy/wp-content/plugins/contact-form-7/modules/recaptcha/index.js" id="wpcf7-recaptcha-js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script type="c812d6ea108537afd197af7f-text/javascript">window.lazyLoadOptions = [{
+                elements_selector: "img[data-lazy-src],.rocket-lazyload",
+                data_src: "lazy-src",
+                data_srcset: "lazy-srcset",
+                data_sizes: "lazy-sizes",
+                class_loading: "lazyloading",
+                class_loaded: "lazyloaded",
+                threshold: 300,
+                callback_loaded: function(element) {
+                    if ( element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible" ) {
+                        if (element.classList.contains("lazyloaded") ) {
+                            if (typeof window.jQuery != "undefined") {
+                                if (jQuery.fn.fitVids) {
+                                    jQuery(element).parent().fitVids();
+                                }
+                            }
+                        }
+                    }
+                }},{
+				elements_selector: ".rocket-lazyload",
+				data_src: "lazy-src",
+				data_srcset: "lazy-srcset",
+				data_sizes: "lazy-sizes",
+				class_loading: "lazyloading",
+				class_loaded: "lazyloaded",
+				threshold: 300,
+			}];
+        window.addEventListener('LazyLoad::Initialized', function (e) {
+            var lazyLoadInstance = e.detail.instance;
+
+            if (window.MutationObserver) {
+                var observer = new MutationObserver(function(mutations) {
+                    var image_count = 0;
+                    var iframe_count = 0;
+                    var rocketlazy_count = 0;
+
+                    mutations.forEach(function(mutation) {
+                        for (var i = 0; i < mutation.addedNodes.length; i++) {
+                            if (typeof mutation.addedNodes[i].getElementsByTagName !== 'function') {
+                                continue;
+                            }
+
+                            if (typeof mutation.addedNodes[i].getElementsByClassName !== 'function') {
+                                continue;
+                            }
+
+                            images = mutation.addedNodes[i].getElementsByTagName('img');
+                            is_image = mutation.addedNodes[i].tagName == "IMG";
+                            iframes = mutation.addedNodes[i].getElementsByTagName('iframe');
+                            is_iframe = mutation.addedNodes[i].tagName == "IFRAME";
+                            rocket_lazy = mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');
+
+                            image_count += images.length;
+			                iframe_count += iframes.length;
+			                rocketlazy_count += rocket_lazy.length;
+
+                            if(is_image){
+                                image_count += 1;
+                            }
+
+                            if(is_iframe){
+                                iframe_count += 1;
+                            }
+                        }
+                    } );
+
+                    if(image_count > 0 || iframe_count > 0 || rocketlazy_count > 0){
+                        lazyLoadInstance.update();
+                    }
+                } );
+
+                var b      = document.getElementsByTagName("body")[0];
+                var config = { childList: true, subtree: true };
+
+                observer.observe(b, config);
+            }
+        }, false);</script><script data-no-minify="1" async src="https://www.zorbas.com.cy/wp-content/plugins/rocket-lazy-load/assets/js/16.1/lazyload.min.js" type="c812d6ea108537afd197af7f-text/javascript"></script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="c812d6ea108537afd197af7f-|49" defer></script></body>
+</html>
+
+
+
+
+
+<!-- WP Optimize page cache - https://getwpo.com - page NOT cached -->

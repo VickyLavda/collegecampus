@@ -10,7 +10,7 @@ import { ShoppingCart, CheckSquare, Plus, Trash2, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
 import alphamegaLogo from '@/assets/alphamega-logo.png';
-import metroLogo from '@/assets/metro-logo.png';
+import zorbasLogo from '@/assets/zorbas-logo.png';
 
 interface ShoppingItem {
   id: string;
@@ -207,29 +207,29 @@ const Supermarket = () => {
         </CardContent>
       </Card>
 
-      {/* Metro Online Shopping */}
+      {/* Zorbas Bakery */}
       <Card className="shadow-soft border-accent/20">
         <CardContent className="pt-6">
           <a 
-            href="https://www.metro.com.cy/en/home" 
+            href="https://www.zorbas.com.cy/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="block"
           >
             <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-background to-secondary/30 hover:shadow-lg transition-all">
               <img 
-                src={metroLogo} 
-                alt="Metro Supermarket" 
+                src={zorbasLogo} 
+                alt="Zorbas Bakery" 
                 className="h-16 object-contain"
               />
               <div className="text-center space-y-2">
                 <h3 className="font-semibold text-lg text-foreground">
-                  {i18n.language === 'el' ? 'Ψωνίστε Online στο Metro' : 'Shop Online at Metro'}
+                  {i18n.language === 'el' ? 'Ψωνίστε Online στο Zorbas' : 'Shop Online at Zorbas Bakery'}
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   {i18n.language === 'el' 
-                    ? 'Κάντε τα ψώνια σας online με παράδοση στο σπίτι' 
-                    : 'Order your groceries online with home delivery'}
+                    ? 'Φρέσκα αρτοποιήματα και γλυκά παραδοσιακά' 
+                    : 'Fresh bakery products and traditional sweets'}
                 </p>
                 <div className="flex items-center justify-center gap-2 p-3 bg-accent/10 rounded-lg border border-accent/20">
                   <Tag className="h-4 w-4 text-accent" />
