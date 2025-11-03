@@ -221,7 +221,8 @@ const Supermarket = () => {
               <img 
                 src={zorbasLogo} 
                 alt="Zorbas Bakery" 
-                className="h-16 object-contain"
+                loading="lazy"
+                className="h-16 object-contain dark:invert"
               />
               <div className="text-center space-y-2">
                 <h3 className="font-semibold text-lg text-foreground">
