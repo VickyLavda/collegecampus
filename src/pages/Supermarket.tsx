@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
 import alphamegaLogo from '@/assets/alphamega-logo.png';
 import zorbasLogo from '@/assets/zorbas-logo.png';
+import alterlifeLogo from '@/assets/alterlife-logo.png';
 
 interface ShoppingItem {
   id: string;
@@ -244,6 +245,49 @@ const Supermarket = () => {
               <Button className="w-full">
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 {i18n.language === 'el' ? 'Επισκεφθείτε το Ηλεκτρονικό Κατάστημα' : 'Visit Online Store'}
+              </Button>
+            </div>
+          </a>
+        </CardContent>
+      </Card>
+
+      {/* Alterlife Gym */}
+      <Card className="shadow-soft border-accent/20">
+        <CardContent className="pt-6">
+          <a 
+            href="https://alterlife.gr/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <div className="flex flex-col items-center gap-4 p-4 rounded-lg bg-gradient-to-br from-background to-secondary/30 hover:shadow-lg transition-all">
+              <img 
+                src={alterlifeLogo} 
+                alt="Alterlife Gym" 
+                className="h-16 object-contain"
+              />
+              <div className="text-center space-y-2">
+                <h3 className="font-semibold text-lg text-foreground">
+                  {i18n.language === 'el' ? 'Γυμνάσου στο Alterlife' : 'Train at Alterlife Gym'}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {i18n.language === 'el' 
+                    ? 'Fitness excellence για φοιτητές' 
+                    : 'Fitness excellence for students'}
+                </p>
+                <div className="flex items-center justify-center gap-2 p-3 bg-accent/10 rounded-lg border border-accent/20">
+                  <Tag className="h-4 w-4 text-accent" />
+                  <div className="text-center">
+                    <p className="text-xs text-muted-foreground">
+                      {i18n.language === 'el' ? 'Κωδικός Έκπτωσης' : 'Discount Code'}
+                    </p>
+                    <p className="font-mono font-bold text-accent">COLLEGE10</p>
+                  </div>
+                </div>
+              </div>
+              <Button className="w-full">
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                {i18n.language === 'el' ? 'Επισκεφθείτε το Γυμναστήριο' : 'Visit Gym Website'}
               </Button>
             </div>
           </a>
