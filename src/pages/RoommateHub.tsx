@@ -486,7 +486,7 @@ export default function RoommateHub() {
                     <SelectContent>
                       {members.map((member) => (
                         <SelectItem key={member.user_id} value={member.user_id}>
-                          {member.profiles?.name || member.profiles?.email}
+                          {member.profiles?.name || 'Unknown'}
                         </SelectItem>
                       ))}
                     </SelectContent>
