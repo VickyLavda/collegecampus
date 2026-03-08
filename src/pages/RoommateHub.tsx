@@ -71,7 +71,7 @@ export default function RoommateHub() {
           const memberIds = hubMembers.map(m => m.user_id);
           const { data: profilesData } = await supabase
             .from('profiles')
-            .select('user_id, name, email')
+            .select('user_id, name')
             .in('user_id', memberIds);
           
           const membersWithProfiles = hubMembers.map(member => ({
