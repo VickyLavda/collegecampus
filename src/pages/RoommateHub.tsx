@@ -630,8 +630,7 @@ export default function RoommateHub() {
                   <Users className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold">{member.profiles?.name}</p>
-                  <p className="text-sm text-muted-foreground">{member.profiles?.email}</p>
+                  <p className="font-semibold">{member.profiles?.name || 'Unknown'}</p>
                 </div>
               </CardContent>
             </Card>

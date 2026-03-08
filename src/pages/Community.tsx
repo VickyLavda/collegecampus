@@ -65,8 +65,8 @@ const Community = () => {
   }, [user, filter]);
 
   const checkAuth = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    setUser(session?.user || null);
+    const { data: { user } } = await supabase.auth.getUser();
+    setUser(user || null);
   };
 
   const loadUserProfile = async () => {
