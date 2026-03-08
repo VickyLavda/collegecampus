@@ -71,7 +71,7 @@ export default function RoommateHub() {
           const memberIds = hubMembers.map(m => m.user_id);
           const { data: profilesData } = await supabase
             .from('profiles')
-            .select('user_id, name, email')
+            .select('user_id, name')
             .in('user_id', memberIds);
           
           const membersWithProfiles = hubMembers.map(member => ({
@@ -486,7 +486,7 @@ export default function RoommateHub() {
                     <SelectContent>
                       {members.map((member) => (
                         <SelectItem key={member.user_id} value={member.user_id}>
-                          {member.profiles?.name || member.profiles?.email}
+                          {member.profiles?.name || 'Unknown'}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -630,8 +630,7 @@ export default function RoommateHub() {
                   <Users className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold">{member.profiles?.name}</p>
-                  <p className="text-sm text-muted-foreground">{member.profiles?.email}</p>
+                  <p className="font-semibold">{member.profiles?.name || 'Unknown'}</p>
                 </div>
               </CardContent>
             </Card>
